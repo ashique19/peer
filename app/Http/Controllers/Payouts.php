@@ -20,27 +20,4 @@ class Payouts extends Controller
         
     }
     
-    public function update(Request $request, $id)
-    {
-        
-        
-        $payout = Payout::find( $id );
-        
-        if( $payout )
-        {
-            
-            $payout->update( $request->all() );
-            
-            return back()->withErrors('Update was successful');
-            
-        } else{
-            
-            return back()->withErrors('Update failed');
-            
-        }
-        
-        return $request->all();
-        
-    }
-    
 }

@@ -1,0 +1,90 @@
+
+
+<?php $__env->startSection('main'); ?>
+
+
+<h1><center>Create new Nav</center></h1>
+
+<?php if($errors->any()): ?>
+    
+    <ul>
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li class="btn-danger"><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+
+<?php endif; ?>
+
+<?php echo Form::open(['action'=>'Navs@store', 'class'=>'col-md-6 col-sm-10 col-md-offset-3 col-sm-offset-1']); ?>
+
+
+    <div class="form-group">
+        <?php echo Form::label('navname','Name: '); ?>
+
+        <?php echo Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Enter nav name']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('route','Route: '); ?>
+
+        <?php echo Form::text('route', null, ['class'=>'form-control', 'placeholder'=>'Enter route (optional)']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('icon','Icon: '); ?>
+
+        <?php echo Form::text('icon', 'fa fa-tachometer', ['class'=>'form-control', 'placeholder'=>'Enter route icon (optional)']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('type','Type: '); ?>
+
+        <?php echo Form::select('type', ['parent','child'], 0, ['class'=>'form-control']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('parent', 'Parent nav: '); ?>
+
+        <?php echo Form::select('parent', $parents, 0, ['class'=> 'form-control']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('active','Active: '); ?>
+
+        <?php echo Form::select('active', ['inactive','active'], 1, ['class'=>'form-control', 'placeholder'=>'enter nav name']); ?>
+
+    </div>
+    
+    <div class="form-group">
+        <?php echo Form::label('location','Location: '); ?>
+
+        <?php echo Form::select('location', [1=>'left', 2=>'top'], 1, ['class'=>'form-control', 'title'=>'Where should this nav go?']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::label('is_public','Is Public: '); ?>
+
+        <?php echo Form::select('is_public', [ 0=>'no', 1=>'yes'], 1, ['class'=>'form-control', 'title'=>'Is this a public nav?']); ?>
+
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::submit('Add Nav', ['class'=>'form-control btn btn-info']); ?>
+
+    </div>
+
+<?php echo Form::close(); ?>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

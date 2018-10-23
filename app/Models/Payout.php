@@ -9,7 +9,7 @@ class Payout extends Model
 {
     protected $table = 'payout';
     protected $fillable = [
-        'id', 'user_id', 'amount', 'type', 'bank_name', 'branch_name', 'swift_code', 'account_name', 'account_number', 'payout_status'
+        'id', 'user_id', 'amount', 'type', 'bank_name', 'branch_name', 'swift_code', 'account_name', 'account_number'
     ];
     public $timestamps = true;
 

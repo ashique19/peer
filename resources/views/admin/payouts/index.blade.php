@@ -34,11 +34,8 @@
                 <th class="blue-bg white-text">Bank name</th>
                 <th class="blue-bg white-text">Branch name</th>
                 <th class="blue-bg white-text">Swift code</th>
-                <th class="blue-bg white-text">Account name</th>
+                <th class="blue-bg white-text">Aaccount name</th>
                 <th class="blue-bg white-text">Account number</th>
-                <th class="blue-bg white-text">
-                    Status 
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -53,31 +50,6 @@
 						<td>{{$payout->swift_code }}</td>
 						<td>{{$payout->account_name }}</td>
 						<td>{{$payout->account_number }}</td>
-						<td>
-						    {{ $payout->payout_status }}
-						    <button type="button" class="btn btn-sm btn-rounded" 
-                                data-toggle="popover"
-                                data-placement="left"
-                                data-html="true"
-                                data-content='
-                                    {!! Form::open(['url' => action('Payouts@update', $payout->id), 'method' => 'PATCH' ]) !!}
-                                    
-                                    <h4>Change Status</h4>
-                                    
-                                    <div class="form-group">
-                                        {!! Form::select('payout_status', ['initiated'=> 'initiated', 'complete' => 'complete', 'declined'=> 'declined' ] , $payout->payout_status, ['class'=> 'form-control']) !!}
-                                    </div>
-                                    
-                                    <div>
-                                        {!! Form::submit('Update', ['class'=> 'btn btn-info btn-sm']) !!}
-                                    </div>
-                                    
-                                    {!! Form::close() !!}
-                                '
-                            >
-                                <i class="fa fa-cog"></i>
-                            </button>
-						</td>
                     </tr>
                 @endforeach
             @endif

@@ -273,12 +273,12 @@ class StaticPageController extends Controller
         return \App\Country::find($countryId)->cities()->lists('cities.name','cities.id')->toArray();
         
     }
-    
-    public function dbPush()
+
+    public function getCountry()
     {
-        
-        sq();
-        
+
+        return \App\Country::all()->toArray();
+
     }
     
     

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\BuyerNew;
 use App\Http\Controllers\Controller;
 use App\Repository\TravellerCartRepository;
 use Illuminate\Http\JsonResponse;
@@ -18,7 +19,6 @@ class TravellerCartController extends Controller
     }
 
     public function checkout(){
-        
         $data = $this->CartRepository->cart();
 
         return view('user.pages.product.traveller-checkout')
@@ -32,9 +32,8 @@ class TravellerCartController extends Controller
     }
 
     public function add(Request $request){
-        // return $request->request->all() ;
         $request = $this->getUser($request);
-        $data = $this->CartRepository->add( $request->request->all() );
+        $data = $this->CartRepository->add($request->request->all());
         return Response::json([
             'data' => $data ,
             'status' => $data['status'] ,
@@ -54,11 +53,27 @@ class TravellerCartController extends Controller
     }
 
     public function checkoutAddress(){
-        
         $data = $this->CartRepository->cart();
-        
+
         return view('user.pages.product.traveller-checkout-address')
             ->with('data', $data);
+    }
+
+    public function confirmProduct(Request $request) {
+        $cartIds = $request->request->get('product_id');
+        if($cartIds) {
+            $updated = $this->CartRepository->confirmProduct($cartIds);
+            if($updated) {
+                \Session::put('travellerCartCount', 0);
+            }
+        }
+        $ids = ($cartIds && is_array($cartIds)) ? implode(',', $cartIds) : '';
+        return redirect('user/product-confirm?ids='. $ids);
+    }
+
+    public function confirmationPage()
+    {
+        return view('user.pages.product.product-confirmation');
     }
 
 

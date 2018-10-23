@@ -65,19 +65,19 @@ class UserProfiles extends Controller
 
         $travellerAvailableAmount = $travellerCartRepository->availableAmount();
         // Total : 100, P  : 80, Traveller will get 95 and 5 % will get the Peerposted
-        $pendingPrice = round($travellerAvailableAmount['total_price'] * 0.95, 2) - Payout::where('user_id', auth()->user()->id)->where('payout_status','complete')->sum('amount');
+        $pendingPrice = round($travellerAvailableAmount['total_price'] * 0.95, 2);
         return view('user.pages.product.withdraw', ['pending_price' => $pendingPrice]);
     }
 
     public function postWithdraw(Request $request, TravellerCartRepository $travellerCartRepository)
     {
         // return $request->all();
-        $travellerAvailableAmount = $travellerCartRepository->availableAmount() - Payout::where('user_id', auth()->user()->id)->where('payout_status','complete')->sum('amount') ;
+        $travellerAvailableAmount = $travellerCartRepository->availableAmount();
         // Total : 100, P  : 80, Traveller will get 95 and 5 % will get the Peerposted
         $pendingPrice = round($travellerAvailableAmount['total_price'] * 0.95, 2);
 
-        if( $pendingPrice < $request->request->get('amount')) {
-            return back()->withErrors('Insufficient Fund.');
+        if($pendingPrice < $request->request->get('amount')) {
+            // return back()->with('message', 'You have selected wrong amount');
         }
         $data = [
             'user_id' => Auth::user()->id,
@@ -90,9 +90,6 @@ class UserProfiles extends Controller
             'account_number' => $request->input('account_number'),
 
         ];
-        
-        // TravellerCartRepository::
-        
         $isAdded = Payout::create($data);
 
         return ($isAdded) ? back()->withErrors('Payout request added successfully')

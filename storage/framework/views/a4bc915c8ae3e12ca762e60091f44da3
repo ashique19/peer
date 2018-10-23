@@ -1,0 +1,70 @@
+
+
+<?php $__env->startSection('main'); ?>
+
+<section class="container">
+
+<h3>Navs for Role</h3>
+
+
+<?php echo Form::open( ['url'=> action('Roles@postNavs') ]); ?>
+
+
+    <?php if($navs): ?>
+        <?php echo Form::hidden('role_id', $role); ?>
+
+        <?php foreach($navs as $nav): ?>
+        
+            <?php if( in_array($nav->id, $permitted_navs) ): ?>
+            
+                <div class="form-group">
+                    <?php echo Form::label('permissions[]', $nav->name); ?>
+
+                    <?php echo Form::checkbox('permissions[]', $nav->id, ['class'=>'form-control']); ?>
+
+                </div>
+            
+            <?php else: ?>
+    
+                <div class="form-group">
+                    <?php echo Form::label('permissions[]', $nav->name); ?>
+
+                    <?php echo Form::checkbox('permissions[]', $nav->id, null); ?>
+
+                </div>
+            
+            <?php endif; ?>
+    
+        
+        <?php endforeach; ?>
+    
+    <?php endif; ?>
+    
+    <div class="form-group">
+        
+    </div>
+
+    <div class="form-group">
+        <?php echo Form::submit('Update Permissions', ['class'=>'form-control btn btn-info']); ?>
+
+    </div>
+
+<?php echo Form::close(); ?>
+
+
+<?php if($errors->any()): ?>
+    <hr>
+    <ul class="container">
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+
+<?php endif; ?>
+
+</section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

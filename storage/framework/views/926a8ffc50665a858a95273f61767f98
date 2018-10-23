@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Traveller <?php $__env->stopSection(); ?>
 <?php $__env->startSection('main'); ?>
 

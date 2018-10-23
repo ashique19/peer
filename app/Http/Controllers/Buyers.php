@@ -43,8 +43,7 @@ class Buyers extends Controller
     public function newIndex()
     {
 
-        $requestedProducts = BuyerNew::where('status', 0)->latest()->paginate(20);
-//        dump($requestedProducts);die;
+        $requestedProducts = BuyerNew::where('status', BuyerNew::$ACTIVE_STATUS)->latest()->paginate(20);
         return view('admin.buyers.new', ['buyers'=> $requestedProducts]);
 
     }
@@ -135,11 +134,7 @@ class Buyers extends Controller
     
     public function storeNew(buyersNewStoreRequest $request)
     {
-        
-        // return $request->all();
-        
         $save_success = BuyerNew::create($request->all());
-        
         if($request->is('api/*')) {
             if($save_success){
                 return JsonResponse::create(['data' => $save_success, 'status' => 200, 'message' => 'Product added'], 200);
@@ -164,7 +159,7 @@ class Buyers extends Controller
         $myTravels = $travels->with('countryFrom')->with('countryTo')->where('user_id', auth()->user()->id)->valid()->latest()->get();
         if(count($myTravels) >= 1) {
             $buyers = $buyer->where('to_country_id', $myTravels[0]->country_to)
-//                ->where('status', 0) // Only not received
+                ->where('status', BuyerNew::$ACTIVE_STATUS) // Only not received
                 ->get();
         }
         

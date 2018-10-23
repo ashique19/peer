@@ -36,11 +36,8 @@ class CartController extends Controller
     }
 
     public function add(Request $request) {
-        
-        // return $request->request->all();
-        
         $request = $this->getUser($request);
-        $data = $this->CartRepository->add( $request->request->all() );
+        $data = $this->CartRepository->add($request->request->all());
         return Response::json([
             'data' => $data ,
             'status' => $data['status'] ,
@@ -49,9 +46,8 @@ class CartController extends Controller
 
     }
 
-    public function delete($id, Request $request) {
-        $request = $this->getUser($request);
-        $data = $this->CartRepository->delete($id, $request->get('user_id'));
+    public function delete($id) {
+        $data = $this->CartRepository->delete($id);
         return Response::json([
             'data' => $data ,
             'status' => ($data['isDelete']) ? 200 : 400 ,

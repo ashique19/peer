@@ -9,7 +9,7 @@
       	@include('user.pages.product.header')
 			<div class="container-fluid">
 				
-				<h2 class="title push-up-20">Traveler Bag</h3>
+				<h3>My Bag</h3>
 				@if(count($data['items']) > 0)
 				    <table id="cart" class="table table-condensed">
 					<thead style="background-color: lightgrey">

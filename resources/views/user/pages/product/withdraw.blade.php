@@ -10,78 +10,85 @@
             <div class="container-fluid travel setting-payment setting-payout">
                 <div class="col-md-12">
                 <!--<form name="withdrawMoney" action="{{route('post-withdraw-money')}}" method="post">-->
-                {!! Form::open([ 'url'=> route('post-withdraw-money'), 'id' => 'withdraw-form' ]) !!}
+                {!! Form::open([ 'url'=> route('post-withdraw-money') ]) !!}
                     
                     @if($errors->any())
                         @foreach( $errors->all() as $error )
-                        <div class="alert alert-danger black-text">{{$error}}</div>
+                        <div class="alert alert-danger">{{$error}}</div>
                         @endforeach
                     @endif
                     <div class="row board">
-                        <div class="col-xs-12">
-                            <h1 class="title">Withdraw Money</h1>
-                            <p class="small text-right">Current Balance: BDT {{ $pending_price }}</p>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon white-text" id="basic-addon3">Select Amount</span>
-                                    <input type="text" name="amount" value="{{ $pending_price }}" class="form-control" aria-describedby="basic-addon3">
+                        <div class="col-md-6">
+                            <div class="row top">
+                                <div class="content">
+                                    <div class="col-md-6">
+                                        <span>Purchased Amount</span>
+                                    </div>
+                                    <div class="col-md-6 payout-input">
+                                        <span>BDT</span> <input name="amount" class="form-control" type="text" value="{{$pending_price}}" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-3">
-                                <div class="input-group col-xs-12">
-                                    <span class="input-group-addon white-text" id="basic-addon3">Select Method</span>
-                                    <select class="form-control" name="type" required >
-                                        <option>- select -</option>
-                                        <option value="bank">Bank Transfer</option>
-                                    </select>
-                                </div>
-                                <div class="col-xs-12 padding-0">
-                                    <div id="payout-form">
-                                        
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row top">
+                                <div class="content">
+                                    <div class="col-md-6">
+                                        <span>Withdraw Method</span>
+                                    </div>
+                                    <div class="col-md-6 payout-input">
+                                        <select class="form-control" name="type" required >
+                                            <option>select</option>
+                                            <option value="bank">Bank</option>
+                                        </select>
+                                        <div id="payout-form">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 push-up-20">
-                            <p id="msg" class="red-text text-right"></p>
-                            <button type="submit" class="pull-right btn btn-common btn-round" >Withdraw Money</button>
-                        </div>
-                        
-                        <div class="col-xs-12 push-up-50">
-                            <h2>Old Orders:</h2>
-                            <table class="table table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th class="blue-bg white-text">Amount</th>
-                                        <th class="blue-bg white-text">Type</th>
-                                        <th class="blue-bg white-text">Bank name</th>
-                                        <th class="blue-bg white-text">Branch name</th>
-                                        <th class="blue-bg white-text">Swift code</th>
-                                        <th class="blue-bg white-text">Account name</th>
-                                        <th class="blue-bg white-text">Account number</th>
-                                        <th class="blue-bg white-text">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(\App\Models\Payout::where('user_id', auth()->user()->id)->count() > 0)
-                                        @foreach(\App\Models\Payout::where('user_id', auth()->user()->id)->latest()->take(20)->get() as $payout)
-                                            <tr>
-                        						<td>{{$payout->amount }}</td>
-                        						<td>{{$payout->type }}</td>
-                        						<td>{{$payout->bank_name }}</td>
-                        						<td>{{$payout->branch_name }}</td>
-                        						<td>{{$payout->swift_code }}</td>
-                        						<td>{{$payout->account_name }}</td>
-                        						<td>{{$payout->account_number }}</td>
-                        						<td>{{$payout->payout_status }}</td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
-                        </div>
+                    </div>
+                    <!--<div class="row board second">-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        <div class="row">-->
+                    <!--            <div class="content">-->
+                    <!--                <div class="col-md-4">-->
+                    <!--                    <span>Enter Booth Code</span>-->
+                    <!--                </div>-->
+                    <!--                <div class="col-md-8 payout-input">-->
+                    <!--                    <input class="form-control" type="text" name="payout-input" placeholder="DD5674">-->
+                    <!--                    <div>-->
+                    <!--                        <img src="{{asset('public/img/peerposted/images/demo.jpg')}}" class="img-responsive" style="width: 15%; float: left; margin-right: 15px; border-radius: 10px; ">-->
+                    <!--                        <h4 style="display: inline-block; width: 60%; ">Dresden Airport, Germany DRS.</h4>-->
+
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+
+                    <!--    </div>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        <div class="row">-->
+                    <!--            <div class="content">-->
+                    <!--                <div class="col-md-1">-->
+                    <!--                    <span>Or</span>-->
+                    <!--                </div>-->
+                    <!--                <div class="col-md-6 payout-input">-->
+                    <!--                    <a href="#" class="btn btn-common btn-round">Scan QR Code</a>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <div class="row layer-1">
+                        <!--<a href="#" class="pull-left">Cancel</a>-->
+                        {{--<a href="#" class="pull-right btn btn-common btn-round"  data-toggle="modal" data-target="#withdrawModal">Withdraw</a>--}}
+                        {{--<a href="#" class="pull-right btn btn-common btn-round" >Withdraw</a>--}}
+                        <button type="submit" name="submit" class="pull-right btn btn-common btn-round">Withdraw Money</button>
                     </div>
                 </form>
                 </div>
@@ -132,45 +139,16 @@
                 $('#payout-form').empty();
                 if( $(this).val() == 'bank' ){
                     $('#payout-form').html(`
-                    <div class="form-group push-up-10">
+                    <div class="form-group">
                         <input type="text" class="form-control" name="bank_name" placeholder="Bank Name" required />
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" name="bank_branch" placeholder="Bank Branch" required />
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" name="swift_code" placeholder="Swift Code" required />
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" name="account_name" placeholder="Account Name" required />
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" name="account_number" placeholder="Account Number" required />
                     </div>
                     `);
                 }
             })
-            
-            $('#withdraw-form').submit(function(e){
-
-                var amount = $('[name="amount"]').val() * 1,
-                    form = $(this),
-                    msg = $('#msg');
-                    
-                if( amount < 1 ){
-                    
-                    e.preventDefault();
-
-                    msg.text('*** Please select amount above 0');
-                    
-                } else{
-                    
-                    msg.empty();
-                    
-                }
-                
-            })
-            
         })
     </script>
     <script type="text/javascript" src="{{ asset('public/product/sidebar.js') }}"></script>

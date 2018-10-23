@@ -148,16 +148,16 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col-md-12 header-bottom header-text">-->
-            <!--    <div class="col-md-6">-->
-            <!--        <div class="left-icon">-->
-            <!--            <img src="{{asset('public/product/home/images/pp/search.svg')}}">-->
-            <!--        </div>-->
-            <!--        <h1>Click to search your desire</h1>-->
-            <!--    </div>-->
-            <!--    <div class="col-md-6 text-right">-->
-            <!--        <img src="{{asset('public/product/home/images/pp/search.svg')}}">-->
-            <!--    </div>-->
+            <div class="col-md-12 header-bottom header-text">
+                <div class="col-md-6">
+                    <div class="left-icon">
+                        <img src="{{asset('public/product/home/images/pp/search.svg')}}">
+                    </div>
+                    <h1>Click to search your desire</h1>
+                </div>
+                <div class="col-md-6 text-right">
+                    <img src="{{asset('public/product/home/images/pp/search.svg')}}">
+                </div>
             </div>
         </div>
     </div>

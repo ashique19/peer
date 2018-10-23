@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class=" theme2">
+<html lang="en" class="nicescroll theme2">
     <head>        
         <!-- META SECTION -->
         <title>@yield('title')</title>            
@@ -78,34 +78,6 @@
             .thumbnail:hover .hover-icon-eye{
                 right: calc( 50% - 20px ) !important;
                 top: 25% !important;
-            }
-            
-            .white-text{
-                color: white !important;
-            }
-            
-            .margin-0{
-                margin: 0px;
-            }
-            
-            .margin-left-0{
-                margin-left: 0px;
-            }
-            
-            .margin-right-0{
-                margin-right: 0px;
-            }
-            
-            .padding-0{
-                padding: 0px;
-            }
-            
-            .red-text{
-                color: red !important;
-            }
-            
-            .black-text{
-                color: black !important;
             }
             
         </style>

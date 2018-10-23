@@ -1,0 +1,79 @@
+
+
+<?php $__env->startSection('main'); ?>
+
+<section class="container">
+
+<h3>Add all incomplete products link</h3>
+
+
+<?php echo Form::open( ['method'=>'patch', 'url'=> action('LinksController@update', ['id' => $link->id]) ]); ?>
+
+
+    <div class="form-group">
+        <?php echo Form::label('product_id','Product ID : '); ?>
+
+        <?php echo Form::text('product_id', $link->product_id , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('title','Title : '); ?>
+
+        <?php echo Form::text('title', $link->title , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('description','Title : '); ?>
+
+        <?php echo Form::text('description', $link->description , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('price','Price : '); ?>
+
+        <?php echo Form::text('price', $link->price , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('currency','Currency : '); ?>
+
+        <?php echo Form::text('currency', $link->currency , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('category','Category : '); ?>
+
+        <?php echo Form::text('category', $link->category , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::label('url','URL : '); ?>
+
+        <?php echo Form::text('url', $link->url , ['class'=>'form-control']); ?>
+
+    </div>
+    <div class="form-group">
+        <?php echo Form::submit('Update Product', ['class'=>'form-control btn btn-info']); ?>
+
+    </div>
+
+<?php echo Form::close(); ?>
+
+
+<?php if($errors->any()): ?>
+    <hr>
+    <ul class="container">
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+
+<?php endif; ?>
+
+</section>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -54,7 +54,7 @@
 					                            <a  href="#" data-id="<?php echo e($buyer->id); ?>" class="btn btn-common pull-left collect add-to-tr-cart">Collect</a>
 					                		</div>
 					                		<div class="col-md-6">
-                                                <a href="#" class="btn btn-common pull-right contact">BDT <?php echo e($buyer->price); ?></a>
+                                                <a href="#" class="btn btn-common pull-right contact">BDT <?php echo e(round($buyer->price - $buyer->price * .125, 2)); ?></a>
 					                		</div>
 					                	</div>
 					                </div>
@@ -107,13 +107,13 @@
                     
           				detailsUrl = dRoute + '?id='+product.id+'&title='+product.title + '&price='+product.currency+' ' +product.price+'&image=' + img + '&url='+product.url+'&category=' + product.category;
           				detailsUrl = encodeURI(detailsUrl);
-          				
-          				productsDiv += '<div class="request-item col-xs-3 col-lg-3"><div class="thumbnail"><a href="#" class="btn btn-danger">-10%</a><a href="#" class="btn btn-primary pull-right" >Earn:' + product.price * .125 + '</a><img class="group list-group-image" src="'+img+'" alt="" />'+
+                        var earnPrice = parseFloat(product.price * .125).toFixed(2); // 0.125 for 15% calculation for traveller and 5% for peerposted
+          				productsDiv += '<div class="request-item col-xs-3 col-lg-3"><div class="thumbnail"><a href="#" class="btn btn-danger">-10%</a><a href="#" class="btn btn-primary pull-right" >Earn:' + earnPrice + '</a><img class="group list-group-image" src="'+img+'" alt="" />'+
           				'<a href="'+product.url+'" target="_blank"><img class="group hover-icon-eye" src="<?php echo e(asset("public/img/peerposted/images/details.svg")); ?>" alt="details"/></a>'+
           				'<img class="group hover-icon-cart" src="<?php echo e(asset('public/img/peerposted/images/add_to_cart.svg')); ?>" alt="add to cart" />'+
           				'<div class="caption col-md-12"><div class="row"><div class="col-md-10"><a href="'+detailsUrl+'"><h5 class="group inner list-group-item-heading">'+product.title+
           				'</h5></a><h5 class="group inner list-group-item-heading">'+product.description+'</h5></div>'+
-          				'</div><div class="row"><div class="col-md-6"><a href="#" data-id="'+product.id+'" class="btn btn-common pull-left collect add-to-tr-cart">Collect</a></div><div class="col-md-6"><a href="#" class="btn btn-common pull-right price">BDT '+product.price+'</a></div></div></div></div></div>';
+          				'</div><div class="row"><div class="col-md-6"><a href="#" data-id="'+product.id+'" class="btn btn-common pull-left collect add-to-tr-cart">Collect</a></div><div class="col-md-6"><a href="#" class="btn btn-common pull-right price">BDT '+product.price - earnPrice +'</a></div></div></div></div></div>';
                     });
                     
                     // Append all product
@@ -147,7 +147,6 @@
                 success:function(response) {
                     console.log(response);
                     if((response.status == 200) || (response.status == 204)){
-                        // $.notify({message: response.message },{type: 'success'});
                         self.html('Delete Collect')
                             .addClass('del-from-tr-cart').removeClass('add-to-tr-cart')
                             .addClass('btn-danger').removeClass('btn-success')

@@ -17,8 +17,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="<?php echo e(route('user-dashboard')); ?>" class="<?php echo e(Request::is('dashboard') ? 'active' : ''); ?>">Dashboard</a></li>
-				<li><a href="<?php echo e(route('product-lists')); ?>" class="<?php echo e(Request::is('user/products') ? 'active' : ''); ?>">Shop</a></li>
-				<li><a href="<?php echo e(route('travel-add')); ?>" class="<?php echo e(Request::is('user/travel/add') ? 'active' : ''); ?>">Add Travel</a></li>
+				<li><a href="<?php echo e(route('product-lists')); ?>" class="<?php echo e(Request::is('user/products') ? 'active' : ''); ?>" >For Buyer</a></li>
+				<li><a href="<?php echo e(route('travel-add')); ?>" class="<?php echo e(Request::is('user/travel/add') ? 'active' : ''); ?>">For Traveler</a></li>
 				<li><a href="<?php echo e(route('buyer-search')); ?>" class="<?php echo e(Request::is('user/buyer/search/new') ? 'active' : ''); ?>">Request</a></li>
 <?php /*				<li><a href="<?php echo e(route('amazon')); ?>" class="<?php echo e(Request::is('amazon') ? 'active' : ''); ?>">Iphone Accessories</a></li>*/ ?>
 <?php /*				<li><a href="<?php echo e(route('amazon1')); ?>" class="<?php echo e(Request::is('electronics') ? 'active' : ''); ?>">Electronics Accessories</a></li>*/ ?>
@@ -32,8 +32,8 @@
 				<?php endif; ?>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?php echo e(route('traveller-checkout')); ?>"><img src="<?php echo e(asset('public/img/peerposted/images/Traveller_Bag_icon.svg')); ?>" /><span id="traveller-cart-quantity" class="label label-default"><?php if(Session('travellerCartCount') > 0): ?><?php echo e(Session('travellerCartCount')); ?><?php endif; ?></span></a></li>
-				<li><a href="<?php echo e(route('checkout')); ?>"><img src="<?php echo e(asset('public/img/peerposted/images/cart.svg')); ?>" /><span id="cart-quantity" class="label label-default"><?php if(Auth::check() && (Session('cartCount') > 0)): ?><?php echo e(Session('cartCount')); ?><?php endif; ?></span></a></li>
+				<li><a href="<?php echo e(route('traveller-checkout')); ?>"><span class="small">Traveler Bag</span> <img src="<?php echo e(asset('public/img/peerposted/images/Traveller_Bag_icon.svg')); ?>" /><span id="traveller-cart-quantity" class="label label-default"><?php if(Session('travellerCartCount') > 0): ?><?php echo e(Session('travellerCartCount')); ?><?php endif; ?></span></a></li>
+				<li><a href="<?php echo e(route('checkout')); ?>"><span class="small">Buyer Cart</span><img src="<?php echo e(asset('public/img/peerposted/images/cart.svg')); ?>" /><span id="cart-quantity" class="label label-default"><?php if(Auth::check() && (Session('cartCount') > 0)): ?><?php echo e(Session('cartCount')); ?><?php endif; ?></span></a></li>
 				<?php if( Auth::check() ): ?>
 				<li class="dropdown">
 					<a href="#" data-toggle="dropdown" role="button" ><img src="<?php echo e(asset('public/img/settings/no-image-available-3.png')); ?>"> </a>

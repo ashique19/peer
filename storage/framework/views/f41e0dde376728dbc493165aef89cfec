@@ -8,13 +8,14 @@
             <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <div class="container-fluid travel setting-payment setting-payout">
                 <div class="col-md-12">
-                    <div class="row layer-1">
-                        <a href="#" class="pull-left">Payout</a>
-                        <a href="#" class="pull-right">How it Works!</a>
-                    </div>
-                <form name="withdrawMoney" action="<?php echo e(route('post-withdraw-money')); ?>" method="post">
-                    <?php if(isset($message)): ?>
-                        <div class="alert alert-danger"><?php echo e($message); ?></div>
+                <!--<form name="withdrawMoney" action="<?php echo e(route('post-withdraw-money')); ?>" method="post">-->
+                <?php echo Form::open([ 'url'=> route('post-withdraw-money') ]); ?>
+
+                    
+                    <?php if($errors->any()): ?>
+                        <?php foreach( $errors->all() as $error ): ?>
+                        <div class="alert alert-danger"><?php echo e($error); ?></div>
+                        <?php endforeach; ?>
                     <?php endif; ?>
                     <div class="row board">
                         <div class="col-md-6">
@@ -37,55 +38,54 @@
                                         <span>Withdraw Method</span>
                                     </div>
                                     <div class="col-md-6 payout-input">
-                                        <select class="form-control" name="type">
-                                            <?php /*<option value="1">PP-Booth</option>*/ ?>
-                                            <option value="2">Stripe</option>
-                                            <option value="3">Bank</option>
-                                            <option value="4">Cheque</option>
-                                            <option value="5">BKash</option>
-                                            <option value="6">Rocket</option>
+                                        <select class="form-control" name="type" required >
+                                            <option>select</option>
+                                            <option value="bank">Bank</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row board second">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="content">
-                                    <div class="col-md-4">
-                                        <span>Enter Booth Code</span>
-                                    </div>
-                                    <div class="col-md-8 payout-input">
-                                        <input class="form-control" type="text" name="payout-input" placeholder="DD5674">
-                                        <div>
-                                            <img src="<?php echo e(asset('public/img/peerposted/images/demo.jpg')); ?>" class="img-responsive" style="width: 15%; float: left; margin-right: 15px; border-radius: 10px; ">
-                                            <h4 style="display: inline-block; width: 60%; ">Dresden Airport, Germany DRS.</h4>
-
+                                        <div id="payout-form">
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="content">
-                                    <div class="col-md-1">
-                                        <span>Or</span>
-                                    </div>
-                                    <div class="col-md-6 payout-input">
-                                        <a href="#" class="btn btn-common btn-round">Scan QR Code</a>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <!--<div class="row board second">-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        <div class="row">-->
+                    <!--            <div class="content">-->
+                    <!--                <div class="col-md-4">-->
+                    <!--                    <span>Enter Booth Code</span>-->
+                    <!--                </div>-->
+                    <!--                <div class="col-md-8 payout-input">-->
+                    <!--                    <input class="form-control" type="text" name="payout-input" placeholder="DD5674">-->
+                    <!--                    <div>-->
+                    <!--                        <img src="<?php echo e(asset('public/img/peerposted/images/demo.jpg')); ?>" class="img-responsive" style="width: 15%; float: left; margin-right: 15px; border-radius: 10px; ">-->
+                    <!--                        <h4 style="display: inline-block; width: 60%; ">Dresden Airport, Germany DRS.</h4>-->
+
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+
+                    <!--    </div>-->
+                    <!--    <div class="col-md-6">-->
+                    <!--        <div class="row">-->
+                    <!--            <div class="content">-->
+                    <!--                <div class="col-md-1">-->
+                    <!--                    <span>Or</span>-->
+                    <!--                </div>-->
+                    <!--                <div class="col-md-6 payout-input">-->
+                    <!--                    <a href="#" class="btn btn-common btn-round">Scan QR Code</a>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+
+                    <!--    </div>-->
+                    <!--</div>-->
 
                     <div class="row layer-1">
-                        <a href="#" class="pull-left">Cancel</a>
+                        <!--<a href="#" class="pull-left">Cancel</a>-->
                         <?php /*<a href="#" class="pull-right btn btn-common btn-round"  data-toggle="modal" data-target="#withdrawModal">Withdraw</a>*/ ?>
                         <?php /*<a href="#" class="pull-right btn btn-common btn-round" >Withdraw</a>*/ ?>
                         <button type="submit" name="submit" class="pull-right btn btn-common btn-round">Withdraw Money</button>
@@ -135,7 +135,20 @@
 <?php $__env->startSection('js'); ?>
     <script >
         $(document).ready(function(){
-
+            $('select[name=type').change(function(){
+                $('#payout-form').empty();
+                if( $(this).val() == 'bank' ){
+                    $('#payout-form').html(`
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="bank_name" placeholder="Bank Name" required />
+                        <input type="text" class="form-control" name="bank_branch" placeholder="Bank Branch" required />
+                        <input type="text" class="form-control" name="swift_code" placeholder="Swift Code" required />
+                        <input type="text" class="form-control" name="account_name" placeholder="Account Name" required />
+                        <input type="text" class="form-control" name="account_number" placeholder="Account Number" required />
+                    </div>
+                    `);
+                }
+            })
         })
     </script>
     <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>

@@ -1,0 +1,139 @@
+
+
+<?php $__env->startSection('main'); ?>
+
+<h3>Navigation Control</h3>
+
+
+
+
+
+<?php if($errors->any()): ?>
+    <ul>
+    <?php foreach($errors->all() as $error): ?>
+        <li><?php echo e($error); ?></li>    
+    <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+
+
+
+
+
+<?php if($nav_parents): ?>
+
+    
+    
+    <ul class="list-group">
+        
+        <?php foreach($nav_parents as $parent): ?>
+        
+            <li class="list-group-item">
+                
+                <h4  data-toggle="collapse" data-target="#<?php echo e($parent->id); ?>"><?php echo e($parent->name); ?> <a href="#"><i class="fa fa-edit edit_nav"></i></a></h4>
+                
+                <?php echo Form::open([ 'method' => 'patch', 'url'=> action('Navs@update', $parent->id) ,'class'=>'form-inline collapse', 'role'=>'form', 'id'=>$parent->id]); ?>
+
+                    <?php echo Form::hidden('id',$parent->id); ?>
+
+                    
+                    <?php echo Form::text('name',$parent->name, ['class'=>'form-control']); ?>
+
+                    
+                    <?php echo Form::select('type', [0=>'parent', 1=>'children'], $parent->type, ['class'=>'form-control']); ?>
+
+                    
+                    <?php echo Form::text('icon',$parent->icon, ['class'=>'form-control', 'placeholder'=>'enter icon (optional)']); ?>
+
+                    
+                    <?php echo Form::select('parent',$parent_list, null, ['class'=>'form-control']); ?>
+
+                    
+                    <?php echo Form::select('location',[1=>'left', 2=>'top'], $parent->location, ['class'=>'form-control']); ?>
+
+                    
+                    <?php echo Form::select('is_public',[0=>'no', 1=>'yes'], $parent->is_public, ['class'=>'form-control', 'title'=>'is public nav?']); ?>
+
+                    
+                    <?php echo Form::submit('Update', ['class'=>'btn btn-info']); ?>
+
+                <?php echo Form::close(); ?>
+
+                
+            </li>
+            
+            
+            <?php
+            
+                $children = [];
+                
+                foreach($nav_children as $child){
+                    
+                    if($child['parent'] == $parent->id)
+                    {
+                        
+                        $children[] = $child;
+                        
+                    }
+                    
+                }
+                
+            
+            ?>
+            
+            
+            <?php if($children): ?>
+            
+                <ul class="list-group">
+            
+                    <?php foreach($children as $child): ?>
+                    
+                        <li class="list-group-item">
+                            
+                            <a href="#"  data-toggle="collapse" data-target="#<?php echo e($child['id']); ?>"><?php echo e($child['name']); ?></a>
+                        
+                            <?php echo Form::open([ 'method' => 'patch', 'url'=> action('Navs@update', $parent->id) ,'class'=>'form-inline collapse', 'role'=>'form', 'id'=>$child['id'] ]); ?>
+
+                            <?php echo Form::hidden('id',$child['id']); ?>
+
+                            <?php echo Form::text('name',$child->name, ['class'=>'form-control']); ?>
+
+                            <?php echo Form::text('route',$child->route, ['class'=>'form-control', 'placeholder'=>'enter route (optional)']); ?>
+
+                            <?php echo Form::text('icon',$child->icon, ['class'=>'form-control', 'placeholder'=>'enter icon (optional)']); ?>
+
+                            <?php echo Form::select('type', ['parent', 'children'] , 1, ['class'=>'form-control']); ?>
+
+                            <?php echo Form::select('parent', $parent_list, $child['parent'], ['class'=>'form-control']); ?>
+
+                            <?php echo Form::select('location',[1=>'left', 2=>'top'], $parent->location, ['class'=>'form-control']); ?>
+
+                            <?php echo Form::select('is_public',[0=>'no', 1=>'yes'], $parent->is_public, ['class'=>'form-control', 'title'=>'is public nav?']); ?>
+
+                            <?php echo Form::submit('Update', ['class'=>'btn btn-info']); ?>
+
+                            <?php echo Form::close(); ?>
+
+                        
+                        </li>
+                    
+                    <?php endforeach; ?>
+                
+                </ul>
+            
+            <?php endif; ?>
+            
+            
+        
+        <?php endforeach; ?>
+        
+    </ul>
+    
+    
+
+<?php endif; ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

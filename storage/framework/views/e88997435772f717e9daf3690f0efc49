@@ -1,0 +1,60 @@
+
+
+<?php $__env->startSection('main'); ?>
+
+<h3>Roles</h3>
+
+
+<?php if($errors): ?>
+
+    <?php echo e($errors->first()); ?>
+
+
+<?php endif; ?>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Serial</th>
+            <th>Name</th>
+            <th>Modify</th>
+            <th>Delete</th>
+            <th>Navs</th>
+            <th>Permission</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if($roles): ?>
+            <?php foreach($roles as $role): ?>
+                <tr>
+                    <td><?php echo e($role['id']); ?></td>
+                    <td><?php echo e($role['name']); ?></td>
+                    <td>
+                        <a href="<?php echo e(action('Roles@edit', $role['id'])); ?>" class="btn btn-default btn-sm btn-rounded" title="Edit role"><span class="fa fa-pencil"></span></a>
+                    </td>
+                    <td>
+                        <?php echo Form::open(['method'=>'delete', 'url'=> "admin/roles/".$role['id'] ]); ?>
+
+                        <?php echo Form::hidden('id', $role['id'] ); ?>
+
+                        <button href="<?php echo e(action('Roles@edit',[$role['id']])); ?>" class="btn btn-danger btn-sm btn-rounded" title="Delete role">
+                            <span class="fa fa-times"></span>
+                        </button>
+                        <?php echo Form::close(); ?>
+
+                    </td>
+                    <td>
+                        <a href="<?php echo e(action('Roles@navs',[$role['id']])); ?>" class="btn btn-info btn-sm btn-rounded" title="Edit role"><span class="fa fa-road"></span></a>
+                    </td>
+                    <td>
+                        <a href="<?php echo e(action('Roles@permissions',[$role['id']])); ?>" class="btn btn-warning btn-sm btn-rounded" title="Edit role"><span class="fa fa-adjust"></span></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

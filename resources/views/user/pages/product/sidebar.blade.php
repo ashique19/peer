@@ -67,12 +67,7 @@
 
 					</div>
 					<div class="input-group mb-2 mr-sm-2" style="margin: 10px">
-						<div class="form-group">
-							<input type="url" required class="form-control" id="url" placeholder="Please insert link" style="width: 500px;"/>
-						</div>
-						<div class="form-group">
-							<input type="textarea" name="custom_link_note" class="form-control" placeholder="Any instruction how we should process your link?" style="width: 500px;" />
-						</div>
+						<input type="url" required class="form-control" id="url" placeholder="Please insert link" style="width: 500px;"/>
 						<br /><small class="form-text text-muted">Post any product link then Admin will review it and add to your cart to proceed.</small>
 					</div>
 				</div>
@@ -91,7 +86,7 @@
 	    e.preventDefault();
 		source = $(this).data('source');
     });
-    $(".vendor-img").on('click', '.link', function (e) {
+    $(".vendor-img").on('click', 'i', function (e) {
         e.preventDefault();
         source = $(this).data('source');
         $("#centralModalSuccess").modal('show');
@@ -118,7 +113,6 @@
             },
             data:{
                 url: $("#url").val(),
-                custom_link_note: $("[name=custom_link_note]").val()
             },
             success:function(response) {
                 console.log(response);

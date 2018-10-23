@@ -105,7 +105,7 @@
                     </div>
 
                 </div>
-                <!--<a href="#" class="btn btn-common" style="background: url({{asset('public/img/peerposted/images/destination.svg')}}) no-repeat #43C1B6;background-size: 16% 57%;padding: 1% 5%;background-position: 10px " id="add-return-route">Add Return Route</a>-->
+        <!--        <a href="#" class="btn btn-common" style="background: url({{asset('public/img/peerposted/images/destination.svg')}}) no-repeat #43C1B6;background-size: 16% 57%;padding: 1% 5%;background-position: 10px " id="add-return-route">Add Return Route</a>-->
                 <input type="submit" class="btn btn-common pull-right" style="padding: 1% 5%;background-position: 10px " value="Add My Travel" />
                 {!! Form::close() !!}
 			</div>
@@ -118,11 +118,20 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<figure>
-					<img width="100%" src="/public/img/settings/for-traveler.jpg" alt="For Buyer" class="img img-responsive">
+					<img width="100%" src="/public/img/settings/for-traveler.jpg" alt="For Traveler" class="img img-responsive">
 				</figure>
 				<p class="detail">
-					If you already have travel plans or are thinking about traveling somewhere soon, select “from” and “to”, to see what people are ordering and how much money you can make
-				</p>
+				    <h5>Choose your destination</h5>
+				    If you already have travel plans or are thinking about traveling somewhere soon, select “from” and “to”, to see what people are ordering and how much money you can make
+					<br><br>
+					<h5>Choose an Order</h5>
+					When you find an order you would like to deliver, notify us by simply selecting that product through our dashboard. 
+					<br><br>
+					<h5>Purchase the items</h5>
+				Peerposted will hold the payment from the buyer and guarantees your payment upon delivering the item. Simply purchase the item with your own money and  you will be paid your commission  after delivery
+				<br><br>
+				<h5>Deliver and get paid</h5>
+				Deliver item to the designated location and receive your payment within 3 working days.
 				<p class="text-center">
 					<button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
 				</p>
@@ -136,13 +145,7 @@
 <script >
    $(document).ready(function(){
      
-    if( localStorage.getItem('traveler-modal-displayed') != "true" && localStorage.getItem('traveler-modal-displayed') != true ){
-    
-      $('#for-traveler-modal').modal('show');
-      
-      localStorage.setItem('traveler-modal-displayed', true )
-    
-    }
+     $('#for-traveler-modal').modal('show');
      
         $(".datepicker").datepicker();
         $("#add-return-route").on('click', function(e){

@@ -1,0 +1,160 @@
+
+
+
+<?php $__env->startSection('title'); ?> Message <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1 class="page-title"><center>Message</center></h1>
+
+
+<?php if($errors->any()): ?>
+<section class="row panel-body">
+    <h4>Please check:</h4>
+    
+    <ul>
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+    <hr>
+</section>  
+<?php endif; ?>
+
+
+<?php if($message): ?>
+<section class="row panel-body">
+    <table class="table table-bordered table-striped table-actions">
+        <tdead>
+            <tr>
+                <td width="200">Title</td>
+                <td>Details</td>
+            </tr>
+        </tdead>
+        <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><?php echo e($message->id); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Name</td>
+                    <td><?php echo e($message->name); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Message from</td>
+                    <td><?php if($message->from): ?><?php echo e($message->from->name); ?><?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Message to</td>
+                    <td><?php if($message->to): ?><?php echo e($message->to->name); ?><?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Is reply</td>
+                    <td><?php if($message->is_reply == 1): ?>Yes <?php else: ?> No <?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Is read</td>
+                    <td><?php if($message->is_read == 1): ?>Yes <?php else: ?> No <?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Reply of:</td>
+                    <td><?php if($message->message): ?> <?php echo e($message->message->name); ?> <?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Details</td>
+                    <td><?php echo $message->details; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Created at</td>
+                    <td><?php echo e($message->created_at); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Updated at</td>
+                    <td><?php echo e($message->updated_at); ?></td>
+                </tr>
+                
+            <tr>
+                <td>
+                    <?php echo edits('Messages', $message->id, 'edit', ['class'=>'btn btn-warning btn-rounded']); ?>
+
+                    <button type="button" class="btn btn-success btn-rounded" data-toggle="modal" data-target="#edit-message">Reply</button>
+                </td>
+                <td>
+                    <?php echo deletes('Messages', $message->id, '<span class=\'fa fa-times\'></span>', ['class'=>'btn btn-danger btn-rounded']); ?>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+<!-- Modal -->
+<div class="modal fade" id="edit-message" tabindex="-1" role="dialog" aria-labelledby="edit-message">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <?php echo Form::open( ['method'=>'patch', 'url'=> action('Messages@update', $message->id), 'enctype'=>'multipart/form-data' ]); ?>
+
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Reply the message</h4>
+      </div>
+      <div class="modal-body">
+            
+            <?php echo Form::hidden('name', 'Re: '.$message->name ); ?>
+
+                
+            <?php echo Form::hidden('message_from', auth()->user()->id ); ?>
+
+                
+            <?php echo Form::hidden('message_to', $message->message_from); ?>
+
+                
+            <?php echo Form::hidden('is_reply', 1); ?>
+
+            
+            <?php echo Form::hidden('is_read', 0); ?>
+
+            
+            <?php echo Form::hidden('message_id', $message->id ); ?>
+
+                
+            <div class="form-group">
+                <?php echo Form::label('details', 'Message: '); ?>
+
+                <?php echo Form::textarea('details', null , ['class'=>'form-control']); ?>
+
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send Reply</button>
+      </div>
+    
+    <?php echo Form::close(); ?>
+
+    </div>
+  </div>
+</div>
+    
+</section>
+
+<?php else: ?>
+
+    <h3>No data found.</h3>
+
+<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

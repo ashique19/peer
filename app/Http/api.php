@@ -12,6 +12,7 @@ Route::group([ 'prefix'=>'api/v1'], function()
     // Auth
     Route::post('signup', 'AccessController@postAjaxSignup');
     Route::post('login', 'LoginController@login')->name('api-login');
+    Route::get('logout',                        'AccessController@logout')->name('logout');
 
     // Product search
     Route::get('products/search', 'EbayController@search')->name('api-products');
@@ -28,6 +29,7 @@ Route::group([ 'prefix'=>'api/v1'], function()
         Route::post('buyer/store', 'Buyers@storeNew')->name('api-buyer-store');
 
         // Traveller route
+        Route::get('travel', 'Travels@searchIndex')->name('api-travel-lists');
         Route::post('travel', 'Travels@storeNew')->name('api-travel-store');
         Route::delete('travel/{id}', 'Travels@destroy')->name('api-travel-delete');
 
@@ -40,6 +42,7 @@ Route::group([ 'prefix'=>'api/v1'], function()
         Route::get('travel/{id}/buyer', 'Buyers@searchByTravel')->name('api-buyer-search-by-travel');
 
         //Airport
+        Route::get('country',       'StaticPageController@getCountry');
         Route::get('airport-search/{param}',       'StaticPageController@airportSearch');
     });
 });

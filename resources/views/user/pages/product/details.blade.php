@@ -44,7 +44,7 @@
                         <div class="section" style="padding-bottom:20px;">
                             <button class="btn btn-common add-to-cart" data-id="{{$id or '1111'}}" data-title="{{$title or 'N/A'}}" data-price="{{$price or '0'}}" data-price="{{$currency or '$'}}" data-image="{{$image or 'http://placehold.it/300x140/ffffff/000000?text=product image'}}" data-url="{{$url}}">
                                 <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
-                            <button data-target="{{route('checkout')}}" class="btn btn-info hidden" id="checkout-link-btn"><a href="{{route('checkout')}}">Go to checkout page</a></button>
+                            <button class="btn btn-info hidden" id="checkout-link-btn"><a href="{{route('checkout')}}">Go to checkout page</a></button>
                         </div>                                        
                     </div>
                 </div>
@@ -55,13 +55,6 @@
 @section('footer-js')
 <script >
    $(document).ready(function(){
-       
-       $('[data-target]').click(function(){
-           
-           window.location.href = $(this).data('target');
-           
-       })
-       
        USER_ROOT_URL = '{{url("/")}}' + '/user/';
         //-- Click on detail
         $("ul.menu-items > li").on("click",function(){

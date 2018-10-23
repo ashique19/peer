@@ -36,21 +36,18 @@ class CartRepository
     }
 
     public function cart(){
-        
-        $data = ['total_price' => 0, 'total_tax' => 0 ]; 
-        
+        $data['total_price'] = 0; 
+        $data['total_tax'] = 0; 
         $data['items'] = Cart::select('carts.*')
             ->whereRaw('carts.price <> ""')
             ->where('carts.user_id', Auth::id())
             ->get();
-        
         foreach ($data['items'] as $item) {
             $price = ($item->price) ? (int)$item->price : 0;
             $tax = ($item->tax) ? (int)$item->tax :0;
             $data['total_price'] += $price;
             $data['total_tax'] += $tax;
         }
-        // return [];
         return $data;
     }
 
@@ -65,13 +62,9 @@ class CartRepository
                 'price' => isset($param['price']) ? $param['price'] : '',
                 'image' => isset($param['image']) ? $param['image'] : '',
                 'url' => isset($param['url']) ? $param['url'] : '',
-                'custom_link_note' => isset($param['custom_link_note']) ? $param['custom_link_note'] : '',
                 'quantity' => isset($param['quantity']) ? $param['quantity'] : '',
                 'user_id' => $param['user_id']
         ]);
-        
-        // dump($cart);
-        
         if (!$cart->exists) {
             $cart->save();
             $data['id'] = $cart->id;
@@ -80,7 +73,6 @@ class CartRepository
             \Session::put('cartCount', $data['quantity']);
             return $data;
         }
-        
         $data['status'] = 204;
         return $data;
     }
@@ -115,7 +107,7 @@ class CartRepository
     }
 
     public function incompleteCartData() {
-        $cart = Cart::select('carts.id', 'carts.url', 'carts.custom_link_note', 'u.name as owner_name', 'carts.created_at')
+        $cart = Cart::select('carts.id', 'carts.url', 'u.name as owner_name', 'carts.created_at')
             ->Join('users AS u', 'u.id', '=', 'carts.user_id')
             ->whereRaw('price = ""')
             ->whereNotNull('url');

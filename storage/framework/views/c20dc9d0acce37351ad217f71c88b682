@@ -39,6 +39,49 @@
             <?php endforeach; ?>
         <?php endif; ?>
         
+        <style type="text/css">
+            #sidebar .vendor .vendor-img .link{
+                width: auto !important;
+            }
+            
+            .for-buyer-traveler-modal{
+                max-width: 380px;
+                margin: 5% auto;
+            }
+            
+            .for-buyer-traveler-modal .modal-content{
+                border: 0px transparent;
+            }
+            
+            .for-buyer-traveler-modal button{
+                padding: 7px 30px;
+                font-size: 16px;
+                background-color: #F27F2C;
+                border-color: #F27F2C;
+            }
+            
+            .for-buyer-traveler-modal .modal-content .modal-body{
+                padding: 0px;
+            }
+            
+            .for-buyer-traveler-modal .modal-content .modal-body .detail{
+                padding: 20px;
+                text-align: center;
+                font-size: 16px;
+                color: #8f8f95;
+            }
+            
+            .for-buyer-traveler-modal .modal-content img{
+                width: 100%;
+            }
+            
+            .thumbnail:hover .hover-icon-eye{
+                right: calc( 50% - 20px ) !important;
+                top: 25% !important;
+            }
+            
+        </style>
+        
         <?php echo $__env->yieldContent('css'); ?>
     <!-- EOF CSS INCLUDE -->                               
 

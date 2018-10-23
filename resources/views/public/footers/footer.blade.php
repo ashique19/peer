@@ -4,8 +4,8 @@
     <div class="row pull-down-35">
         <section class="col-sm-3 col-sm-offset-1 col-xs-12 site-links">
                 <h3>Company</h3>
-                <!--<p><a href="{{action('StaticPageController@aboutUs')}}" target="_blank" class="white-text">About Us</a></p>-->
-                <!--<p><a href="{{action('StaticPageController@page', 'career')}}" target="_blank" class="white-text">Careers</a></p>-->
+                <p><a href="{{action('StaticPageController@aboutUs')}}" target="_blank" class="white-text">About Us</a></p>
+                <p><a href="{{action('StaticPageController@page', 'career')}}" target="_blank" class="white-text">Careers</a></p>
                 <p><a href="{{action('StaticPageController@page', 'terms-of-service')}}" target="_blank" class="white-text">Terms</a></p>
                 <p><a href="{{action('StaticPageController@page', 'privacy-policy')}}" target="_blank" class="white-text">Privacy Policy</a></p>
                 <!--<p><a href="{{action('StaticPageController@page', 'blog')}}" target="_blank" class="white-text">Blog</a></p>-->

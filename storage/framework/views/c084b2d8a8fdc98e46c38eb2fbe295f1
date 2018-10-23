@@ -26,7 +26,7 @@
 								<div class="vendor-img">
 									<img src="<?php echo e(asset('public/img/peerposted/images/amazon.svg')); ?>" onclick="alert('Amazon product are coming soon. For now Add amazon product link at link option.');" data-source="amazon" style="width: 27%" />
 									<img src="<?php echo e(asset('public/img/peerposted/images/ebay.svg')); ?>" data-source="ebay" style="height: 33px;">
-									<span><i class="fa fa-link link" data-source="link"></i></span>
+									<span class="link"><i class="fa fa-link " data-source="link"></i> Custom Link</span>
 								</div>
 							</div>
 							<?php /*<div class="rating">*/ ?>

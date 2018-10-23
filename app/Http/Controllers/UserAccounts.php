@@ -20,8 +20,7 @@ class UserAccounts extends Controller
     }
     public function modifyNew()
     {
-        
-        
+
         return view('user.pages.product.account-edit');
 
     }
@@ -57,7 +56,7 @@ class UserAccounts extends Controller
     
     public function profile()
     {
-        // return auth()->user();
+        
         return view('user.pages.profile');
         
     }

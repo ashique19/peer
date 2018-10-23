@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Mails;
 use App\Http\Controllers\Shippings;
 use App\Payment;
-use Paypal;
+//use Paypal;
 use Redirect;
 
 class Payments extends Controller
@@ -21,18 +21,18 @@ class Payments extends Controller
     
     public function __construct()
     {
-        $this->_apiContext = PayPal::ApiContext(
-            config('services.paypal.client_id'),
-            config('services.paypal.client_secret'));
+//        $this->_apiContext = PayPal::ApiContext(
+//            config('services.paypal.client_id'),
+//            config('services.paypal.client_secret'));
 
-        $this->_apiContext->setConfig(array(
-            'mode' => config('services.paypal.mode'),
-            'service.EndPoint' => config('services.paypal.service_endpoint'),
-            'http.ConnectionTimeOut' => 30,
-            'log.LogEnabled' => true,
-            'log.FileName' => storage_path('logs/paypal.log'),
-            'log.LogLevel' => 'FINE'
-        ));
+//        $this->_apiContext->setConfig(array(
+//            'mode' => config('services.paypal.mode'),
+//            'service.EndPoint' => config('services.paypal.service_endpoint'),
+//            'http.ConnectionTimeOut' => 30,
+//            'log.LogEnabled' => true,
+//            'log.FileName' => storage_path('logs/paypal.log'),
+//            'log.LogLevel' => 'FINE'
+//        ));
 
     }
     
@@ -367,59 +367,59 @@ class Payments extends Controller
      * @return redirect to PAYPAL
      * 
     */
-    public function payNowPaypal($id, Payment $payments)
-    {
-        
-        $payment = $payments->where('id', $id)->unpaid()->first();
-        
-        if( ! $payment )
-        {
-            
-            return back()->withErrors('Your transaction could not be validated. If you think this was an error, please contact admin.');
-            
-        }
-        
-        session(['payment'=> $payment]);
-        
-        $payer = PayPal::Payer();
-        $payer->setPaymentMethod('paypal');
-    
-        $amount = PayPal:: Amount();
-        $amount->setCurrency('USD');
-        $amount->setTotal( $payment->payment); // This is the simple way,
-        // you can alternatively describe everything in the order separately;
-        // Reference the PayPal PHP REST SDK for details.
-    
-        $transaction = PayPal::Transaction();
-        $transaction->setAmount($amount);
-        
-        if( $payment->payment_type == 1 )
-        {
-        
-            $transaction->setDescription('Airposted Payment ID: '.$payment->id.'. Product: '.$payment->name.' Amount: '.$payment->payment.'.USD Buyer ID: '.$payment->buyer_id.' Traveler ID: '.$payment->traveller_id);
-            
-        } elseif( $payment->payment_type == 3 )
-        {
-            
-            $transaction->setDescription('Airposted_Pitneybowes Payment ID: '.$payment->id.'. Product: '.$payment->name.' Amount: '.$payment->payment.'.USD Buyer ID: '.$payment->buyer_id);
-            
-        }
-        
-        $redirectUrls = PayPal:: RedirectUrls();
-        $redirectUrls->setReturnUrl(action('Payments@getDone'));
-        $redirectUrls->setCancelUrl(action('Payments@getCancel'));
-    
-        $payment = PayPal::Payment();
-        $payment->setIntent('sale');
-        $payment->setPayer($payer);
-        $payment->setRedirectUrls($redirectUrls);
-        $payment->setTransactions(array($transaction));
-    
-        $response = $payment->create($this->_apiContext);
-        $redirectUrl = $response->links[1]->href;
-    
-        return Redirect::to( $redirectUrl );
-    }
+//    public function payNowPaypal($id, Payment $payments)
+//    {
+//
+//        $payment = $payments->where('id', $id)->unpaid()->first();
+//
+//        if( ! $payment )
+//        {
+//
+//            return back()->withErrors('Your transaction could not be validated. If you think this was an error, please contact admin.');
+//
+//        }
+//
+//        session(['payment'=> $payment]);
+//
+//        $payer = PayPal::Payer();
+//        $payer->setPaymentMethod('paypal');
+//
+//        $amount = PayPal:: Amount();
+//        $amount->setCurrency('USD');
+//        $amount->setTotal( $payment->payment); // This is the simple way,
+//        // you can alternatively describe everything in the order separately;
+//        // Reference the PayPal PHP REST SDK for details.
+//
+//        $transaction = PayPal::Transaction();
+//        $transaction->setAmount($amount);
+//
+//        if( $payment->payment_type == 1 )
+//        {
+//
+//            $transaction->setDescription('Airposted Payment ID: '.$payment->id.'. Product: '.$payment->name.' Amount: '.$payment->payment.'.USD Buyer ID: '.$payment->buyer_id.' Traveler ID: '.$payment->traveller_id);
+//
+//        } elseif( $payment->payment_type == 3 )
+//        {
+//
+//            $transaction->setDescription('Airposted_Pitneybowes Payment ID: '.$payment->id.'. Product: '.$payment->name.' Amount: '.$payment->payment.'.USD Buyer ID: '.$payment->buyer_id);
+//
+//        }
+//
+//        $redirectUrls = PayPal:: RedirectUrls();
+//        $redirectUrls->setReturnUrl(action('Payments@getDone'));
+//        $redirectUrls->setCancelUrl(action('Payments@getCancel'));
+//
+//        $payment = PayPal::Payment();
+//        $payment->setIntent('sale');
+//        $payment->setPayer($payer);
+//        $payment->setRedirectUrls($redirectUrls);
+//        $payment->setTransactions(array($transaction));
+//
+//        $response = $payment->create($this->_apiContext);
+//        $redirectUrl = $response->links[1]->href;
+//
+//        return Redirect::to( $redirectUrl );
+//    }
     
     /**
      * 
@@ -430,42 +430,42 @@ class Payments extends Controller
      * @return redirect to payment page
      * 
     */
-    public function getDone(Request $request)
-    {
-        
-        $session_payment = session('payment');
-        
-        $id = $request->get('paymentId');
-        
-        $token = $request->get('token');
-        
-        $payer_id = $request->get('PayerID');
-    
-        $payment = PayPal::getById($id, $this->_apiContext);
-    
-        $paymentExecution = PayPal::PaymentExecution();
-    
-        $paymentExecution->setPayerId($payer_id);
-        
-        $executePayment = $payment->execute($paymentExecution, $this->_apiContext);
-        
-        $payment_is_successful = Payment::find($session_payment['id'])->update(['status'=> 2, 'gateway_id'=> 1, 'gateway_payment_id'=> $id, 'gateway_payer_id'=> $payer_id]);
-        
-        if( $payment_is_successful )
-        {
-            
-            return ( new \App\Http\Controllers\PostPaymentSteps )->all();
-            
-        } else
-        {
-            
-            return redirect()->action('Payments@buyer')->withErrors('Failed to process your transaction. Please retry later.');
-            
-        }
-        
-        
-        return view('checkout.done');
-    }
+//    public function getDone(Request $request)
+//    {
+//
+//        $session_payment = session('payment');
+//
+//        $id = $request->get('paymentId');
+//
+//        $token = $request->get('token');
+//
+//        $payer_id = $request->get('PayerID');
+//
+//        $payment = PayPal::getById($id, $this->_apiContext);
+//
+//        $paymentExecution = PayPal::PaymentExecution();
+//
+//        $paymentExecution->setPayerId($payer_id);
+//
+//        $executePayment = $payment->execute($paymentExecution, $this->_apiContext);
+//
+//        $payment_is_successful = Payment::find($session_payment['id'])->update(['status'=> 2, 'gateway_id'=> 1, 'gateway_payment_id'=> $id, 'gateway_payer_id'=> $payer_id]);
+//
+//        if( $payment_is_successful )
+//        {
+//
+//            return ( new \App\Http\Controllers\PostPaymentSteps )->all();
+//
+//        } else
+//        {
+//
+//            return redirect()->action('Payments@buyer')->withErrors('Failed to process your transaction. Please retry later.');
+//
+//        }
+//
+//
+//        return view('checkout.done');
+//    }
     
     /**
      * 

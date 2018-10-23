@@ -52,7 +52,16 @@ class Travels extends Controller
 					($request->input('user_id'))   ? $result = $result->where('user_id', $request->input('user_id')) : false;
 					($request->input('is_active'))   ? $result = $result->where('is_active', 'like', '%'.$request->input('is_active').'%') : false;
         
-        return view('admin.travels.index', ['travels'=> $result->latest()->paginate(20)]);
+        $travelData = $result->latest()->paginate(20);
+        if($request->is('api/*')) {
+            if($travelData){
+                return JsonResponse::create(['data' => $travelData, 'status' => 200, 'message' => 'Travel lists'], 200);
+            } else{
+                return JsonResponse::create(['data' => $travelData, 'status' => 400, 'message' => 'Not Found'], 200);
+            }
+        } else {
+            return view('admin.travels.index', ['travels'=> $travelData]);
+        }
         
     }
     

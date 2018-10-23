@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository;
 
+use App\BuyerNew;
 use App\Models\TravellerCart;
 use Illuminate\Database\Eloquent\softDeletes;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,9 @@ class TravellerCartRepository
         $data['total_price'] = 0; 
         $data['items'] = TravellerCart::select('traveller_carts.*')->with('products')
             ->with('user')
+            ->Join('buyers_new AS b', 'b.id', '=', 'traveller_carts.product_id')
             ->where('traveller_carts.user_id', Auth::id())
+            ->where('b.status', BuyerNew::$ACTIVE_STATUS) // Confirmed from Admin panel
             ->get();
         foreach ($data['items'] as $item) {
             $data['total_price'] += $item->products->price;
@@ -39,7 +42,7 @@ class TravellerCartRepository
             ->with('user')
             ->Join('buyers_new AS b', 'b.id', '=', 'traveller_carts.product_id')
             ->where('traveller_carts.user_id', Auth::id())
-            ->where('b.status', 1) // Confirmed from Admin panel
+            ->where('b.status', BuyerNew::$RECEIVED_STATUS) // Confirmed from Admin panel
             ->get();
         foreach ($data['items'] as $item) {
             $data['total_price'] += $item->products->price;
@@ -73,5 +76,12 @@ class TravellerCartRepository
         $data['quantity'] = TravellerCart::where('user_id', $userId)->count();
         \Session::put('travellerCartCount', $data['quantity']);
         return $data;
+    }
+
+    public function confirmProduct($cartIds)
+    {
+        $updated = BuyerNew::whereIn('id', $cartIds)
+            ->update(['status' => BuyerNew::$CONFIRMED_STATUS]);
+        return $updated;
     }
 }

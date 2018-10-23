@@ -321,7 +321,7 @@ class AccessController extends Controller
         {
             $message[] = "Email address does not seem to valid.";
         }
-        if( ! (bool) preg_match('([a-zA-Z].*[0-9]|[0-9].*[a-zA-Z])', $request->input('password') )  || ! strlen($request->input('password')) > 7)
+        if( ! (bool) preg_match('([a-zA-Z].*[0-9]|[0-9].*[a-zA-Z])', $request->input('password') )  || ! count($request->input('password')) > 7)
         {
             $message[] = "Password must be Alphanumeric and at least 8 characters long.";
         }

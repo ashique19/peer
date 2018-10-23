@@ -1,0 +1,65 @@
+
+
+
+<?php $__env->startSection('title'); ?> Payout Requests <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1><center>Payout Requests</center></h1>
+
+
+<?php if($errors->any()): ?>
+<section class="col-sm-10 col-sm-offset-1 panel-body">
+    <h4>Please check:</h4>
+    
+    <ul>
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+    <hr>
+</section>  
+<?php endif; ?>
+
+<section class="col-sm-10 col-sm-offset-1">
+    
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th class="blue-bg white-text">User</th>
+                <th class="blue-bg white-text">Amount</th>
+                <th class="blue-bg white-text">Type</th>
+                <th class="blue-bg white-text">Bank name</th>
+                <th class="blue-bg white-text">Branch name</th>
+                <th class="blue-bg white-text">Swift code</th>
+                <th class="blue-bg white-text">Aaccount name</th>
+                <th class="blue-bg white-text">Account number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if($payouts): ?>
+                <?php foreach($payouts as $payout): ?>
+                    <tr>
+						<td><?php echo e($payout->user ? $payout->user->name : ''); ?></td>
+						<td><?php echo e($payout->amount); ?></td>
+						<td><?php echo e($payout->type); ?></td>
+						<td><?php echo e($payout->bank_name); ?></td>
+						<td><?php echo e($payout->branch_name); ?></td>
+						<td><?php echo e($payout->swift_code); ?></td>
+						<td><?php echo e($payout->account_name); ?></td>
+						<td><?php echo e($payout->account_number); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+    <?php echo $payouts->render(); ?>
+
+</section>
+
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

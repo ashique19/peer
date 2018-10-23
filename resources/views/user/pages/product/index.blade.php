@@ -1,17 +1,5 @@
 @extends('public.layouts.layout')
 @section('title')Peerposted - Shipping Simplified - Products @stop
-
-@section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('public/product/style.css') }}">
-<style>
-.lead{
-	font-size: 16px !important;
-}
-</style>
-@endsection
-
-
 @section('main')
     <div class="wrapper">
 		@include('user.pages.product.sidebar')
@@ -41,9 +29,7 @@
     </div>
 @stop
 
-@section('bodyScope')
-
-<div class="modal fade" tabindex="-1" role="dialog" id="for-buyer-modal">
+<div class="modal fade in" tabindex="-1" role="dialog" id="for-buyer-modal">
 	<div class="modal-dialog for-buyer-traveler-modal" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -61,22 +47,12 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-@stop
-
 @section('footer-js')
 <script type="text/javascript" src="{{ asset('public/preview/common.js') }}"></script>
 
 <script type="text/javascript">
-
-	if( localStorage.getItem('buyer-modal-displayed') != "true" && localStorage.getItem('buyer-modal-displayed') != true ){
-		
-		$('#for-buyer-modal').modal('show');
-		
-		localStorage.setItem('buyer-modal-displayed', true )
-		
-	}
 	
-	
+	$('#for-buyer-modal').modal('show');
 	
 	var detailsRoute = '{{route("product-details")}}';
 	@if(\Route::current()->getName() === 'login')
@@ -87,21 +63,13 @@
 	// Variable to maintain onscroll
 	pageNumber = 1;
 	inProgress = false;
-	
-	const win_h = $(window).height();
 
 	$(window).on("scroll", function() {
         var scrollHeight = $(document).height(),
 			scrollPosition = $(window).height() + $(window).scrollTop(),
 			more = true;
-			
-		var doc_h = $(document).height() - ( win_h / 2 ) - 100,
-			scr_h = $(window).scrollTop() + ( win_h / 2 );
-		
-		console.table({ win_h, doc_h, scr_h, more, inProgress })
-		
-        // if (((scrollHeight - scrollPosition) / scrollHeight === 0) && more && !inProgress) {
-        if ( scr_h > doc_h && more && !inProgress && $.active < 2) {
+
+        if (((scrollHeight - scrollPosition) / scrollHeight === 0) && more && !inProgress) {
             // when scroll to bottom of the page
             $.ajax({
                 url: ROOT_URL + "products/search/ebay",
@@ -131,17 +99,21 @@
 						productsDiv += `
 						<div class="item col-xs-3 col-lg-3">
 							<div class="thumbnail">
-								<a href="#" class="btn btn-danger discount">-${discount}%</a>
-								<img class="group list-group-image" src="${ img }" alt="" />
+								<a href="#" class="btn btn-danger discount">-'+discount+'%</a>
+								<img class="group list-group-image" src="'+img+'" alt="" />
 								<a href="'+product.url+'" target="_blank">
 									<img class="group hover-icon-eye" src="${ ROOT_URL + ASSET_DIR }details.svg" alt="" />
+									
 								</a>
 								<div class="caption">
-									<h4 class="group inner list-group-item-heading"><a class="product-link" href="${ detailsUrl }" >${ product.title }</a></h4>
-									<p class="group inner list-group-item-text">${ product.category }</p>
+									<h4 class="group inner list-group-item-heading"><a class="product-link" href="'+detailsUrl+'" >'+product.title+'</a></h4>
+									<p class="group inner list-group-item-text">'+product.category+'</p>
 									<div class="row">
 										<div class="col-xs-12 col-md-10">
-											<p class="lead amount">${ product.currency } <b>${ product.price }</b></p>
+											<p class="lead amount">'+product.currency+' <b>' +product.price+'</b></p>
+										</div>
+										<div class="col-xs-12 col-md-2">
+											<i class="glyphicon glyphicon-heart pull-right heart"></i>
 										</div>
 									</div>
 								</div>
@@ -181,4 +153,13 @@
 <script type="text/javascript" src="{{ asset('public/product/sidebar.js') }}"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>-->
 
+@endsection
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/product/style.css') }}">
+<style>
+.lead{
+	font-size: 16px !important;
+}
+</style>
 @endsection

@@ -61,35 +61,35 @@
 				      	<input type="hidden" name="description" value="{{$cart->description}}" />
 					  @endforeach
                  <div class="row" id="pick-up-content">
-				   <!-- <div class="col-md-6 hidden">-->
-				   <!--     <fieldset>-->
+				    <div class="col-md-6 ">
+				        <fieldset>
 				
 				          <!-- Form Name -->
-				   <!--       <legend>From</legend>-->
-							<!--{!! Form::select('from_country_id', \App\Country::orderBy('name')->lists('name', 'id'), old('country_from'), ['class'=> 'form-control select2', 'placeholder'=> '- Please select From Country-', 'required'=> 'required']) !!}-->
-							<!--<br/>-->
+				          <legend>From</legend>
+							{!! Form::select('from_country_id', \App\Country::orderBy('name')->lists('name', 'id'), old('country_from'), ['class'=> 'form-control select2', 'placeholder'=> '- Please select From Country-', 'required'=> 'required']) !!}
+							<br/>
 				          <!-- Text input-->
-				   <!--       <div class="form-group">-->
-				   <!--         <div class="col-sm-10">-->
-				   <!--           <input type="text" name="from_address" placeholder="Address" class="form-control">-->
-				   <!--         </div>-->
-				   <!--       </div>-->
+				          <div class="form-group">
+				            <div class="col-sm-10">
+				              <input type="text" name="from_address" placeholder="Address" class="form-control">
+				            </div>
+				          </div>
 			
 				          <!-- Text input-->
-				   <!--       <div class="form-group">-->
-				   <!--         <div class="col-sm-4">-->
-				   <!--           <input type="text" name="from_state" placeholder="State" class="form-control">-->
-				   <!--         </div>-->
-				   <!--         <div class="col-sm-4">-->
-				   <!--           <input type="text" name="from_zip" placeholder="Zipcode" class="form-control">-->
-				   <!--         </div>-->
-				   <!--       </div>-->
-				   <!--     </fieldset>-->
-				   <!-- </div>-->
-				    <div class="col-xs-12 ">
+				          <div class="form-group">
+				            <div class="col-sm-4">
+				              <input type="text" name="from_state" placeholder="State" class="form-control">
+				            </div>
+				            <div class="col-sm-4">
+				              <input type="text" name="from_zip" placeholder="Zipcode" class="form-control">
+				            </div>
+				          </div>
+				        </fieldset>
+				    </div>
+				    <div class="col-md-6 ">
 				        <fieldset>
 				          <!-- Form Name -->
-				          <legend>Address</legend>
+				          <legend>To</legend>
 						  {!! Form::select('to_country_id', \App\Country::orderBy('name')->lists('name', 'id'), old('country_to'), ['class'=> 'form-control select2', 'placeholder'=> '- Please select To Country -', 'required'=> 'required']) !!}
 							<br/>
 				          <!-- Text input-->
