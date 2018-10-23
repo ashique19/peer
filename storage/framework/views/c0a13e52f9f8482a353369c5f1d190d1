@@ -1,0 +1,81 @@
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - My Orders <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="wrapper payment-confirmation">
+        <?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div id="content">
+            <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container-fluid travel setting-payment setting-payout">
+                <div class="col-md-12">
+                    
+                    <?php if($errors->any()): ?>
+                        <?php foreach( $errors->all() as $error ): ?>
+                        <div class="alert alert-danger"><?php echo e($error); ?></div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <div class="row board">
+                        <div class="col-xs-12">
+                            <h1 class="title">My Orders</h1>
+                        </div>
+                        
+                        <div class="col-xs-12">
+                            <h3 class="alert alert-primary">Buyer Board</h3>
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Title</th>
+                                        <th>Url</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if( count($buys) > 0 ): ?>
+                                    <?php foreach( $buys as $buy ): ?>
+                                    <tr>
+                                        <td><?php echo e($buy->id); ?></td>
+                                        <td><?php echo e($buy->title); ?></td>
+                                        <td><a href="<?php echo e($buy->url); ?>" target="_blank" ><?php echo e($buy->url); ?></a></td>
+                                        <td><img src="<?php echo e($buy->image); ?>" alt="" class="img img-thumbnail"></td>
+                                        <td><?php echo e($buy->price); ?></td>
+                                        <td><?php echo e($buy->status); ?></td>
+                                        <td><?php echo e($buy->created_at->format('Y-m-d')); ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                            <?php if( count($buys) > 0 ): ?>
+                            <?php echo $buys->render(); ?>
+
+                            <?php endif; ?>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script >
+        $(document).ready(function(){
+            
+            
+            
+        })
+    </script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/travel.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

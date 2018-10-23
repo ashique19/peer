@@ -1,0 +1,145 @@
+
+
+
+<?php $__env->startSection('title'); ?> Offer <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1><center>Offers <?php if($offers): ?> : <?php echo e($offers->total()); ?> <?php endif; ?></center></h1>
+
+<section class="col-sm-10 col-sm-offset-1">
+    
+    <?php echo Form::open(['class'=>'form form-inline', 'method' =>'post', 'url'=> action('Offers@searchIndex')]); ?> 
+            
+        <?php echo Form::hidden('is_reply', 0); ?>
+
+            
+        <div class="form-group">
+            <?php echo Form::label('is_agreed', 'Is agreed: '); ?>
+
+            <?php echo Form::select('is_agreed', [ ''=>'-Select-','1'=>'Yes', '0'=>'No'], old('is_agreed') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('is_offer_from_buyer', 'Is offer from buyer: '); ?>
+
+            <?php echo Form::select('is_offer_from_buyer', [ ''=>'-Select-','1'=>'Yes', '0'=>'No'], old('is_offer_from_buyer') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('is_offer_from_traveller', 'Is offer from traveller: '); ?>
+
+            <?php echo Form::select('is_offer_from_traveller', [ ''=>'-Select-','1'=>'Yes', '0'=>'No'], old('is_offer_from_traveller') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('traveller_id', 'Traveler: '); ?>
+
+            <?php echo Form::select('traveller_id', [], old('traveller_id') , ['class'=>'form-control user-search', 'placeholder'=>'-Search Traveler-']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('buyer_id', 'Buyer: '); ?>
+
+            <?php echo Form::select('buyer_id', [], old('buyer_id') , ['class'=>'form-control user-search', 'placeholder'=> '-Search Buyer-']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('note', 'Note: '); ?>
+
+            <?php echo Form::text('note', old('note') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('from', 'From: '); ?>
+
+            <?php echo Form::text('from', old('from') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+        
+        <div class="form-group">
+            <?php echo Form::label('to', 'To: '); ?>
+
+            <?php echo Form::text('to', old('to') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+
+        <?php echo Form::submit('search', ['class'=>'btn btn-info']); ?>
+
+        
+    <?php echo Form::close(); ?>
+
+    
+    <hr>
+</section>
+
+<?php echo errors($errors); ?>
+
+
+<section class="col-sm-10 col-sm-offset-1">
+    
+    <a href="<?php echo e(action('Offers@create')); ?>" class="btn btn-default pull-right btn-lg blue-border blue-text">Add new</a>
+    
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+				<th class="blue-bg white-text">Id</th>
+				<th class="blue-bg white-text">Product</th>
+				<th class="blue-bg white-text">Buyer</th>
+				<th class="blue-bg white-text">Traveler</th>
+				<th class="blue-bg white-text">Reply</th>
+				<th class="blue-bg white-text">Price</th>
+				<th class="blue-bg white-text">Trav</th>
+				<th class="blue-bg white-text">Trans</th>
+				<th class="blue-bg white-text">Airp</th>
+				<th class="blue-bg white-text">Total</th>
+                <th class="blue-bg white-text" width="50">Show</th>
+                <th class="blue-bg white-text" width="50">Modify</th>
+                <th class="blue-bg white-text" width="50">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if($offers): ?>
+                <?php foreach($offers as $offer): ?>
+                    <tr>
+						<td><?php echo e($offer->id); ?></td>
+						<td><a href="<?php echo e($offer->link); ?>" class="btn btn-default btn-rounded btn-xs" target="_blank"><?php echo e($offer->name); ?></a></td>
+                        <td><?php if($offer->buyer): ?><?php echo e($offer->buyer->name); ?> <?php endif; ?></td>
+                        <td><?php if($offer->traveller): ?><?php echo e($offer->traveller->name); ?> <?php endif; ?></td>
+                        <td><?php echo e(yn($offer->is_reply)); ?></td>
+                        <td><?php echo e($offer->product_price); ?></td>
+                        <td><?php echo e($offer->offer_price - $offer->product_price); ?></td>
+                        <td><?php echo e($offer->transaction_charge); ?></td>
+                        <td><?php echo e($offer->airposted_commission); ?></td>
+                        <td><?php echo e($offer->total_price); ?></td>
+                        <td>
+                            <?php echo views('Offers', $offer->id, '<span class=\'fa fa-expand\'></span>', ['class'=>'btn btn-success btn-rounded']); ?>
+
+                        </td>
+                        <td>
+                            <?php echo edits('Offers', $offer['id'], '<span class=\'fa fa-pencil\'></span>', ['class'=>'btn btn-warning btn-rounded']); ?>
+
+                        </td>
+                        <td>
+                            <?php echo deletes('Offers', $offer['id'], '<span class=\'fa fa-times\'></span>', ['class'=>'btn btn-danger btn-rounded']); ?>
+
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+    <?php echo $offers->render(); ?>
+
+</section>
+
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

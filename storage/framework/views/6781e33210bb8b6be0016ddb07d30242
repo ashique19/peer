@@ -1,0 +1,31 @@
+<?php if(session('user_type') == 'buyer'): ?>
+
+<?php echo $__env->make('user.partials.buyer-nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+
+<?php echo $__env->make('public.partials.notice', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+</div>
+
+<?php elseif(session('user_type') == 'traveller'): ?>
+
+<?php echo $__env->make('user.partials.traveler-nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php elseif(session('user_type') == 'order'): ?>
+
+<?php echo $__env->make('user.partials.nav-order', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php else: ?>
+
+
+
+<?php endif; ?>
+
+<?php if($errors->has('user_type')): ?>
+<section class="row">
+    <div class="alert alert-success">
+        <p class="black-text text-center"><?php echo e($errors->first()); ?></p>
+    </div>
+</section>
+<?php endif; ?>

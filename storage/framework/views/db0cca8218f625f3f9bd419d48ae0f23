@@ -1,0 +1,114 @@
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Dashboard <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="wrapper payment-confirmation">
+        <?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div id="content">
+            <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container-fluid setting travel">
+                <div class="col-md-12">
+                    <div class="row layer-1">
+                        <a href="#" class="pull-left">My Settings</a>
+                    </div>
+                    <div class="row layer-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?php echo e(route('user-settings')); ?>" class="<?php echo e(Request::is('user/profile') ? 'active' : ''); ?>">Profile</a></li>
+                            <li><a href="<?php echo e(route('password-update')); ?>" class="<?php echo e(Request::is('user/account/update-password') ? 'active' : ''); ?>">Change Password</a></li>
+                            <li><a href="<?php echo e(route('payout')); ?>" class="<?php echo e(Request::is('user/payout') ? 'active' : ''); ?>">Payment</a></li>
+                        </ul>
+                    </div>
+                    <div class="row layer-3">
+                        <div class="details text-warning pull-10">
+                            <b>Welcome Back! <?php echo e($user->name); ?></b>
+                            <a href="<?php echo e(route('profile-update')); ?>" class="active pull-right">Edit</a>
+                        </div>
+                    </div>
+                    <div class="row layer-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <figure>
+                                            <img width="100" src="<?php echo e(strlen(auth()->user()->user_photo) > 5 ? auth()->user()->user_photo : asset('public/img/peerposted/images/user.jpg')); ?>" class="img-responsive">
+                                        </figure>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <table class="table table-responsive table-bordered table-striped" >
+                                            <tr>
+                                                <td style="width: 100px;"><span class="push-up-5 push-down-5">Name</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->name); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">Location</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->address); ?>, <?php echo e($user->city); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">Gender</span></td>
+                                                <td><span class="push-up-5 push-down-5">Male</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">About Me</span></td>
+                                                <td><span class="push-up-5 push-down-5">Florida, USA</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">Registered</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->created_at->format('d-m-Y')); ?></span></td>
+                                            </tr>
+                                        </table>
+                                    </div><!-- /.row -->
+                                    <div class="col-xs-12 col-sm-6">
+                                        <table class="table table-responsive table-bordered table-striped" >
+                                            <tr>
+                                                <td rowspan="6"><img class="img-responsive location-img" src="<?php echo e(asset('public/img/peerposted/images/location.svg')); ?>"></td>
+                                                <td><span class="push-up-5 push-down-5">Address</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->address); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">City</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->city); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">State</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->state); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">Zipcode</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e($user->postcode); ?></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="push-up-5 push-down-5">Country</span></td>
+                                                <td><span class="push-up-5 push-down-5"><?php echo e(($user->country) ? $user->country->name : ''); ?></span></td>
+                                            </tr>
+                                        </table>
+                                    </div><!-- /.row -->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script >
+        $(document).ready(function(){
+
+        })
+    </script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/travel.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

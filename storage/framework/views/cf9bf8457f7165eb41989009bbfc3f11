@@ -1,0 +1,196 @@
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Payout <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="wrapper payment-confirmation">
+        <?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div id="content">
+            <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container-fluid travel setting-payment">
+                <div class="col-md-12">
+                    <div class="row layer-1">
+                        <a href="#" class="pull-left">My Settings</a>
+                        <a href="#" class="pull-right">Refer a friend</a>
+                    </div>
+
+                    <?php if(Session::has('msg')): ?>
+                        <p class="alert <?php echo e(Session::get('alert-class', 'alert-info')); ?>"><?php echo e(Session::get('msg')); ?></p>
+                    <?php endif; ?>
+                    <div class="row layer-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?php echo e(route('user-settings')); ?>" class="<?php echo e(Request::is('user/profile') ? 'active' : ''); ?>">Profile</a></li>
+                            <li><a href="<?php echo e(route('password-update')); ?>" class="<?php echo e(Request::is('user/account/update-password') ? 'active' : ''); ?>">Change Password</a></li>
+                            <li><a href="<?php echo e(route('payout')); ?>" class="<?php echo e(Request::is('user/payout') ? 'active' : ''); ?>">Payment</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row board">
+                        <div class="layer-3">
+                            <span>Traveller Board</span>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="content left">
+                                    <div class="col-md-6">
+                                        <span>Pending Amount</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <span class="dollar"><b>BDT <?php echo e($pending_price); ?></b></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="content right">
+                                    <div class="col-md-4">
+                                        <span>Available Amount</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="dollar"> <b>BDT <?php echo e($available_amount); ?></b> </span>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="<?php echo e(route('withdraw-payment')); ?>" class="btn btn-common btn-round payout">Pay Out</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row board">
+                        <div class="layer-3">
+                            <span>Buyer Board </span>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="content left">
+                                    <div class="col-md-6">
+                                        <span>Purchased Amount</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <span class="dollar"><b>BDT <?php echo e($purchasedAmount); ?></b></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="content right">
+                                    <div class="col-md-4">
+                                        <span>XXXXX Amount</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <?php /*<span class="dollar"> <b>BDT 0</b> </span>*/ ?>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="#" class="btn btn-common btn-round payout">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <?php /*<div class="row">*/ ?>
+                        <?php /*<div class="col-md-12">*/ ?>
+                            <?php /*<p><b>General Setting</b></p>*/ ?>
+                            <?php /*<div class="details  layer-3">*/ ?>
+                                <?php /*<span>Payment Action</span>*/ ?>
+                                <?php /*<a href="#" class="active pull-right">Cancel</a>*/ ?>
+                                <?php /*<a href="#" class="active pull-right">Save</a>*/ ?>
+                            <?php /*</div>*/ ?>
+                        <?php /*</div>*/ ?>
+                    <?php /*</div>*/ ?>
+
+
+                    <?php /*<div class="row final-layer">*/ ?>
+                        <?php /*<div class="col-md-12">*/ ?>
+                            <?php /*<div class="row">*/ ?>
+                                <?php /*<div class="content">*/ ?>
+                                    <?php /*<div class="col-md-3 left">*/ ?>
+                                        <?php /*<div class="row">*/ ?>
+                                            <?php /*<div class="card">*/ ?>
+                                                <?php /*<div class="col-md-2">*/ ?>
+                                                    <?php /*<img src="<?php echo e(asset('public/img/peerposted/images/card.svg')); ?>" class="img-responsive card-icon">*/ ?>
+                                                <?php /*</div>*/ ?>
+                                                <?php /*<div class="col-md-6">*/ ?>
+                                                    <?php /*<img src="<?php echo e(asset('public/img/peerposted/images/demo.jpg')); ?>" class="img-responsive card-type">*/ ?>
+                                                    <?php /*<img src="<?php echo e(asset('public/img/peerposted/images/demo.jpg')); ?>" class="img-responsive card-type">*/ ?>
+                                                    <?php /*<img src="<?php echo e(asset('public/img/peerposted/images/demo.jpg')); ?>" class="img-responsive card-type">*/ ?>
+                                                <?php /*</div>*/ ?>
+
+
+                                            <?php /*</div>*/ ?>
+
+                                        <?php /*</div>*/ ?>
+                                    <?php /*</div>*/ ?>
+                                    <?php /*<div class="col-md-4 center">*/ ?>
+                                        <?php /*<div class="middle text-center">*/ ?>
+                                            <?php /*<h3>...XXXX 4589</h3>*/ ?>
+                                            <?php /*<a href="#" class="btn btn-common btn-same"> Edit</a>*/ ?>
+                                            <?php /*<a href="#" class="btn btn-common btn-same"> Remove</a>*/ ?>
+                                        <?php /*</div>*/ ?>
+                                        <?php /*<div class="middle text-center">*/ ?>
+                                            <?php /*<h3>...XXXX 4589</h3>*/ ?>
+                                            <?php /*<a href="#" class="btn btn-common btn-same"> Edit</a>*/ ?>
+                                            <?php /*<a href="#" class="btn btn-common btn-same"> Remove</a>*/ ?>
+                                        <?php /*</div>*/ ?>
+                                    <?php /*</div>*/ ?>
+                                    <?php /*<div class="col-md-5 text-right right">*/ ?>
+                                        <?php /*<div class="row">*/ ?>
+                                            <?php /*<div class="col-md-9">*/ ?>
+                                                <?php /*<input class="form-control" type="text" name="no" placeholder="XXXX-XXXX-XXXX-4321" maxlength="16">*/ ?>
+                                            <?php /*</div>*/ ?>
+
+                                        <?php /*</div>*/ ?>
+                                        <?php /*<div class="row">*/ ?>
+                                            <?php /*<div class="col-md-6">*/ ?>
+                                                <?php /*<input class="form-control" type="text" name="date" placeholder="MM/YY" maxlength="5">*/ ?>
+                                            <?php /*</div>*/ ?>
+                                            <?php /*<div class="col-md-3">*/ ?>
+                                                <?php /*<input class="form-control" type="text" name="ccv" placeholder="CCV" maxlength="3">*/ ?>
+                                            <?php /*</div>*/ ?>
+                                        <?php /*</div>*/ ?>
+                                        <?php /*<div class="row">*/ ?>
+                                            <?php /*<div class="col-md-9 text-left" >*/ ?>
+                                                <?php /*<input type="checkbox" name="">*/ ?>
+                                                <?php /*<label>Primary Card</label>*/ ?>
+                                            <?php /*</div>*/ ?>
+                                            <?php /*<div class="col-md-9 text-center" >*/ ?>
+                                                <?php /*<a href="#" class="btn btn-common btn-round">Add New Card</a>*/ ?>
+                                            <?php /*</div>*/ ?>
+
+                                        <?php /*</div>*/ ?>
+                                    <?php /*</div>*/ ?>
+                                <?php /*</div>*/ ?>
+                            <?php /*</div>*/ ?>
+
+                        <?php /*</div>*/ ?>
+                    <?php /*</div>*/ ?>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script >
+        $(document).ready(function(){
+
+        })
+    </script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/travel.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

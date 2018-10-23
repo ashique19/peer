@@ -1,0 +1,16 @@
+
+.form-inline .form-group .file-input {
+    display: inline-block;
+}
+
+.form-inline .form-group .file-input .file-caption {
+    display: none;
+}
+
+.form-inline .form-group .btn-file {
+    margin-top: 10px;
+}
+
+.form-inline .form-group.image label {
+    transform: translate(0, -70%);
+}

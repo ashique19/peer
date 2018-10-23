@@ -1,0 +1,128 @@
+
+
+
+<?php $__env->startSection('title'); ?> Gateway <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1><center>Gateways <?php if($gateways): ?> : <?php echo e($gateways->total()); ?> <?php endif; ?></center></h1>
+
+<section class="col-xs-12">
+    
+    <?php echo Form::open(['class'=>'form form-inline', 'method' =>'post', 'url'=> action('Gateways@searchIndex')]); ?> 
+        <div class="form-group">
+            <?php echo Form::label('name', 'Name: '); ?>
+
+            <?php echo Form::text('name', old('name') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('charge', 'Charge: '); ?>
+
+            <?php echo Form::text('charge', old('charge') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('is_active', 'Is active: '); ?>
+
+            <?php echo Form::select('is_active', [ ''=>'-Select-','1'=>'Yes', '0'=>'No'], old('is_active') , ['class'=>'form-control']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('from', 'From: '); ?>
+
+            <?php echo Form::text('from', old('from') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+        
+        <div class="form-group">
+            <?php echo Form::label('to', 'To: '); ?>
+
+            <?php echo Form::text('to', old('to') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+
+        <?php echo Form::submit('search', ['class'=>'btn btn-info']); ?>
+
+        
+    <?php echo Form::close(); ?>
+
+    
+    <hr>
+</section>
+
+<section class="col-sm-11">
+<?php if($errors->any()): ?>
+
+    <h4>Please check:</h4>
+    
+    <ul>
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+    <hr>
+    
+<?php endif; ?>
+</section>
+
+<section class="col-sm-11">
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Charge</th>
+				<th>Is active</th>
+				<th>Created at</th>
+				<th>Updated at</th>
+                <th>Show</th>
+                <th>Modify</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if($gateways): ?>
+                <?php foreach($gateways as $gateway): ?>
+                    <tr>
+						<td><?php echo e($gateway->id); ?></td>
+						<td><?php echo e($gateway->name); ?></td>
+						<td><?php echo e($gateway->charge); ?></td>
+						<td><?php if($gateway->is_active == 1): ?> Yes <?php elseif($gateway->is_active == 0): ?> No <?php else: ?> $gateway->is_active <?php endif; ?></td>
+						<td><?php echo e($gateway->created_at); ?></td>
+						<td><?php echo e($gateway->updated_at); ?></td>
+                        <td>
+                            <a href="<?php echo e(action('Gateways@show', $gateway->id)); ?>" class="btn btn-default btn-sm btn-rounded" title="Edit role"><span class="fa fa-pencil"></span></a>
+                        </td>
+                        <td>
+                            <a href="<?php echo e(action('Gateways@edit', $gateway['id'])); ?>" class="btn btn-default btn-sm btn-rounded" title="Edit role"><span class="fa fa-pencil"></span></a>
+                        </td>
+                        <td>
+                            <?php echo Form::open(['method'=>'delete', 'url'=> action('Gateways@destroy', $gateway->id) ]); ?>
+
+                            <?php echo Form::hidden('id', $gateway->id ); ?>
+
+                            <button href="<?php echo e(action('Gateways@edit',[$gateway->id])); ?>" class="btn btn-danger btn-sm btn-rounded" title="Delete gateway ">
+                                <span class="fa fa-times"></span>
+                            </button>
+                            <?php echo Form::close(); ?>
+
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+    <?php echo $gateways->render(); ?>
+
+</section>
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

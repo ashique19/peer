@@ -1,0 +1,127 @@
+
+
+
+<?php $__env->startSection('title'); ?> Buy <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1><center>Buy <?php if($buyers): ?> : <?php echo e($buyers->total()); ?> <?php endif; ?></center></h1>
+
+<section class="col-sm-10 col-sm-offset-1">
+    
+    <?php echo Form::open(['class'=>'form form-inline', 'method' =>'post', 'url'=> action('Buyers@searchIndex')]); ?> 
+        <div class="form-group">
+            <?php echo Form::label('name', 'Name: '); ?>
+
+            <?php echo Form::text('name', old('name') , ['class'=>'form-control']); ?>
+
+        </div>
+
+        <div class="form-group">
+            <?php echo Form::label('country_id', 'Country: '); ?>
+
+            <?php echo Form::select('country_id', \App\Country::lists('name', 'id'), old('country_id') , ['class'=>'form-control select2' ]); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('user_id', 'User: '); ?>
+
+            <?php echo Form::select('user_id', [], old('user_id') , ['class'=>'form-control user-search', 'placeholder'=> '-Search Buyer-']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('category_id', 'Category: '); ?>
+
+            <?php echo Form::select('category_id', \App\Category::lists('name', 'id'), old('category_id') , ['class'=>'form-control select2']); ?>
+
+        </div>
+            
+        <div class="form-group">
+            <?php echo Form::label('from', 'From: '); ?>
+
+            <?php echo Form::text('from', old('from') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+        
+        <div class="form-group">
+            <?php echo Form::label('to', 'To: '); ?>
+
+            <?php echo Form::text('to', old('to') , ['class'=>'form-control datepicker']); ?>
+
+        </div>
+
+        <?php echo Form::submit('search', ['class'=>'btn btn-info']); ?>
+
+        
+    <?php echo Form::close(); ?>
+
+    
+    <hr>
+</section>
+
+<?php echo errors($errors); ?>
+
+
+<section class="col-sm-12">
+    
+    <a href="<?php echo e(action('Buyers@create')); ?>" class="btn btn-default pull-right btn-lg blue-border blue-text">Add new</a>
+    
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+				<th class="blue-bg white-text">Id</th>
+				<th class="blue-bg white-text">Name</th>
+				<th class="blue-bg white-text">Amazon url</th>
+				<th class="blue-bg white-text">Other url</th>
+				<th class="blue-bg white-text">Price</th>
+				<th class="blue-bg white-text">Country</th>
+				<th class="blue-bg white-text">Buyer</th>
+				<th class="blue-bg white-text">Category</th>
+				<th class="blue-bg white-text">Created at</th>
+				<th class="blue-bg white-text">Updated at</th>
+                <th class="blue-bg white-text" width="50">Show</th>
+                <th class="blue-bg white-text" width="50">Modify</th>
+                <th class="blue-bg white-text" width="50">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if($buyers): ?>
+                <?php foreach($buyers as $buyer): ?>
+                    <tr>
+						<td><?php echo e($buyer->id); ?></td>
+						<td><?php echo e($buyer->name); ?></td>
+						<td><a href="<?php echo e($buyer->amazon_url); ?>" class="btn btn-default btn-rounded btn-xs" target="_blank">open in new window</a></td>
+						<td><a href="<?php echo e($buyer->other_url); ?>" class="btn btn-default btn-rounded btn-xs" target="_blank">open in new window</a></td>
+						<td><?php echo e($buyer->price); ?></td>
+						<td><?php if($buyer->country): ?> <?php echo e($buyer->country->name); ?> <?php endif; ?></td>
+						<td><?php if($buyer->user): ?> <?php echo e($buyer->user->name); ?> <?php endif; ?></td>
+						<td><?php if($buyer->category): ?> <?php echo e($buyer->category->name); ?> <?php endif; ?></td>
+						<td><?php echo e($buyer->created_at); ?></td>
+						<td><?php echo e($buyer->updated_at); ?></td>
+                        <td>
+                            <?php echo views('Buyers', $buyer->id, '<span class=\'fa fa-expand\'></span>', ['class'=>'btn btn-success btn-rounded']); ?>
+
+                        </td>
+                        <td>
+                            <?php echo edits('Buyers', $buyer['id'], '<span class=\'fa fa-pencil\'></span>', ['class'=>'btn btn-warning btn-rounded']); ?>
+
+                        </td>
+                        <td>
+                            <?php echo deletes('Buyers', $buyer['id'], '<span class=\'fa fa-times\'></span>', ['class'=>'btn btn-danger btn-rounded']); ?>
+
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+    <?php echo $buyers->render(); ?>
+
+</section>
+
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

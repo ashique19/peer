@@ -1,0 +1,5 @@
+<div class="col-xs-12 col-sm-6 offer-status xs-no-padding">
+    <a href="{{action('Offers@offerFromBuyerAccepted')}}" class="push-5 pull-right btn white-text square-border green-bg @if($mark == 'accepted') active @endif">Accepted ({{traveler_count_accepted_offers()}})<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    <a href="{{action('Offers@offerFromBuyerRejected')}}" class="push-5 pull-right btn white-text square-border blue-bg @if($mark == 'rejected') active @endif">Rejected ({{traveler_count_rejected_offers()}})<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    <a href="{{action('Offers@offerFromBuyer')}}" class="push-5 pull-right btn white-text square-border orange-bg @if($mark == 'pending') active @endif">Pending ({{traveler_count_pending_offers()}})<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+</div>

@@ -1,0 +1,83 @@
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Dashboard <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="wrapper payment-confirmation">
+        <?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div id="content">
+            <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container-fluid dashboard">
+                <?php if(session('success')): ?>
+                    <div class="alert alert-success">
+                        <?php echo e(session('success')); ?>
+
+                    </div>
+                <?php endif; ?>
+                <?php if(session('error')): ?>
+                    <div class="alert alert-warning col-md-12">
+                        <?php echo e(session('error')); ?>
+
+                    </div>
+                <?php endif; ?>
+                <div class="row">
+                    <div class="content">
+                        <div class="col-md-6">
+                            <h1>What do you want to do?</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <nav class='menu'>
+                                <input checked='checked' class='menu-toggler' id='menu-toggler' type='checkbox'>
+                                <!-- <label for='menu-toggler'></label> -->
+                                <ul>
+                                    <li class='menu-item'>
+                                        <a href='<?php echo e(route('traveller-checkout')); ?>' title="Travel" > <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/travel.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='#' title="Confirmation"> <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/confirmation.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='<?php echo e(route('my-travels')); ?>' title="My Travel"> <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/my_travel.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='<?php echo e(route('buyer-search')); ?>' title="Request"> <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/request.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='<?php echo e(route('checkout')); ?>' title="Orders"> <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/orders.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='<?php echo e(route('product-lists')); ?>' title="Buy"> <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/buy.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='#' > <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/ship.svg')); ?>" > </a>
+                                    </li>
+                                    <li class='menu-item'>
+                                        <a href='#' > <img class="img-responsive" src="<?php echo e(asset('public/img/peerposted/images/dashboard/company.svg')); ?>" > </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script >
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip()
+
+        })
+    </script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/dashboard.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

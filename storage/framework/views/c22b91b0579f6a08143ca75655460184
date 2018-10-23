@@ -1,0 +1,187 @@
+
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Products <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+    <div class="wrapper">
+		<?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <div id="content">
+			<?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<div class="container-fluid"  style="margin-top:3%">
+				<h5>Traveller Cart Products</h5>
+				<?php if(count($data['items']) > 0): ?>
+				    
+		        <ul class="list-unstyled video-list-thumbs row">
+			        
+		        	<?php foreach($data['items'] as $cart): ?>
+						<li class="col-lg-2 col-sm-3 col-xs-4">
+							<a href="#" title="Claudio Bravo, antes su debut con el Barça en la Liga">
+								<img src="<?php echo e(isset($cart->products->image) ? $cart->products->image : asset('public/product/photo_not_available.png')); ?>" alt="Barca" class="img-responsive" height="130px" />
+								<h6 class="limited-text"><?php echo e($cart->products->title); ?></h6>
+							</a>
+						</li>
+
+		            <?php endforeach; ?>
+		            <li class="col-lg-2 col-sm-3 col-xs-4">
+						<a href="<?php echo e(route('buyer-search')); ?>">
+							<img src="http://via.placeholder.com/200x140?text=Shop more" alt="Shop more" class="img-responsive" height="130px" />
+						</a>
+					</li>
+				</ul>
+				    
+				<?php else: ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-container">
+                                    <header class="page-header clearfix">
+                                            <div class="alert alert-info text-center"> No item in your cart. Add to cart for checkout.</div>
+                                    </header>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div style="margin-top:5%"></div>
+                <!-- Add Address option -->
+                <h5>Select your delivery method</h5>
+				<div id="delivery-method">
+					<button class="btn btn-lg" id="ship-to-office" value="ship">Ship to Office</button>
+					<button class="btn btn-common btn-lg" id="pick-up" value="pick-up">Pick up request</button>
+					<?php /*<button class="btn btn-lg" id="later" value="later">Decide Later</button>*/ ?>
+				</div>
+				<br><br>
+                <?php echo errors($errors); ?>
+
+            	<form class="form-horizontal" role="form" action="<?php echo e(route('buyer-store')); ?>" method="post">
+				      <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+				      <?php foreach($data['items'] as $cart): ?>
+				      	<input type="hidden" name="title" value="<?php echo e($cart->title); ?>" />
+				      	<input type="hidden" name="price" value="<?php echo e($cart->price); ?>" />
+				      	<input type="hidden" name="url" value="<?php echo e($cart->url); ?>" />
+				      	<input type="hidden" name="image" value="<?php echo e($cart->image); ?>" />
+				      	<input type="hidden" name="quantity" value="<?php echo e($cart->quantity); ?>" />
+				      	<input type="hidden" name="description" value="<?php echo e($cart->description); ?>" />
+					  <?php endforeach; ?>
+                 <div class="row" id="pick-up-content">
+				    <div class="col-md-6 ">
+				        <fieldset>
+				
+				          <!-- Form Name -->
+				          <legend>From</legend>
+							<?php echo Form::select('from_country_id', \App\Country::orderBy('name')->lists('name', 'id'), old('country_from'), ['class'=> 'form-control select2', 'placeholder'=> '- Please select From Country-', 'required'=> 'required']); ?>
+
+							<br/>
+				          <!-- Text input-->
+				          <div class="form-group">
+				            <div class="col-sm-10">
+				              <input type="text" name="from_address" placeholder="Address" class="form-control">
+				            </div>
+				          </div>
+			
+				          <!-- Text input-->
+				          <div class="form-group">
+				            <div class="col-sm-4">
+				              <input type="text" name="from_state" placeholder="State" class="form-control">
+				            </div>
+				            <div class="col-sm-4">
+				              <input type="text" name="from_zip" placeholder="Zipcode" class="form-control">
+				            </div>
+				          </div>
+				        </fieldset>
+				    </div>
+				    <div class="col-md-6 ">
+				        <fieldset>
+				          <!-- Form Name -->
+				          <legend>To</legend>
+						  <?php echo Form::select('to_country_id', \App\Country::orderBy('name')->lists('name', 'id'), old('country_to'), ['class'=> 'form-control select2', 'placeholder'=> '- Please select To Country -', 'required'=> 'required']); ?>
+
+							<br/>
+				          <!-- Text input-->
+				          <div class="form-group">
+				            <div class="col-sm-10">
+				              <input type="text" name="to_address" placeholder="Address" class="form-control">
+				            </div>
+				          </div>
+			
+				          <!-- Text input-->
+				          <div class="form-group">
+				            <div class="col-sm-4">
+				              <input type="text" name="to_state" placeholder="State" class="form-control">
+				            </div>
+				            <div class="col-sm-4">
+				              <input type="text" name="to_zip" placeholder="Zipcode" class="form-control">
+				            </div>
+				          </div>
+						<input type="hidden" name="user_id" value="<?php echo e(Auth::user()->id); ?>">
+				
+				        </fieldset>
+				    </div>
+				</div><!-- /.row -->
+				 <div class="row" id="ship-content" style="margin: 20px; display: none;">
+					 <fieldset>
+						 <legend>Select Office</legend>
+						 <div class="col-md-12 ">
+							 <div class="input-group">
+								 <div class="input-group-btn">
+									 <img src="<?php echo e(asset('public/img/peerposted/images/dashboard/travel.svg')); ?>" style="width: 20%">
+									 <a class="btn" style="margin-right: 30px; ">Select Office</a>
+								 </div>
+								 <select class="form-control select2 country-to" name="to_address" id="office">
+									 <option value="gulshan">Gulshan</option>
+									 <option value="airport">Airport</option>
+								 </select>
+							 </div>
+						 </div>
+					 </fieldset>
+				 </div>
+				<div class="row">
+					<div class="col-md-2"><a href="<?php echo e(route('product-lists')); ?>" class="btn color-text"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
+					<div class="col-md-8"></div>
+					<div class="col-md-2"><button class="btn btn-info btn-block" type="submit" name="submit">checkout</button></div>
+				</div>
+		      </form>
+			
+			</div>
+        </div>
+        
+    </div>
+    
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+<script >
+   $(document).ready(function() {
+       $("#office").select2();
+       $("#delivery-method").on('click', 'button', function(e) {
+           var self = $(this), val = self.val();
+          self.parent().find('button').removeClass('btn-common');
+          self.addClass('btn-common');
+          console.log();
+          if(val === 'pick-up') {
+              $("#pick-up-content").show('slow');
+              $("#ship-content").hide('slow');
+		  } else if(val === 'ship') {
+              $("#pick-up-content").hide('slow');
+              $("#ship-content").show('slow');
+              $('')
+		  } else {
+              $("#pick-up-content").hide('slow');
+              $("#ship-content").hide('slow');
+		  }
+	   });
+    })
+</script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+<style>
+	.limited-text {
+		white-space: nowrap;
+		width: 150px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

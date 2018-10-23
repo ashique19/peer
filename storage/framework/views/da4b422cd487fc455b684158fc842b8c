@@ -1,0 +1,176 @@
+
+
+
+<?php $__env->startSection('title'); ?> Setting <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+<h1><center>Setting</center></h1>
+
+<section class="col-xs-12">
+<?php if($errors->any()): ?>
+
+    <h4>Please check:</h4>
+    
+    <ul>
+        <?php foreach($errors->all() as $error): ?>
+        
+            <li><?php echo e($error); ?></li>
+        
+        <?php endforeach; ?>
+    </ul>
+    <hr>
+    
+<?php endif; ?>
+</section>
+
+<?php if($setting): ?>
+<section class="col-xs-12">
+    <table class="table table-bordered table-striped table-actions">
+        <tdead>
+            <tr>
+                <td width="200">Title</td>
+                <td>Details</td>
+            </tr>
+        </tdead>
+        <tbody>
+                
+                <tr>
+                    <td>Application name</td>
+                    <td><?php echo e($setting->application_name); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Application slogan</td>
+                    <td><?php echo e($setting->application_slogan); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Business name</td>
+                    <td><?php echo e($setting->business_name); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Owners name</td>
+                    <td><?php echo e($setting->owners_name); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Address</td>
+                    <td><?php echo e($setting->address); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>City</td>
+                    <td><?php echo e($setting->city); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Country</td>
+                    <td><?php echo e($setting->country); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Postcode</td>
+                    <td><?php echo e($setting->postcode); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Contact</td>
+                    <td><?php echo e($setting->contact); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Helpline</td>
+                    <td><?php echo e($setting->helpline); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Helpmail</td>
+                    <td><?php echo e($setting->helpmail); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Email</td>
+                    <td><?php echo e($setting->email); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Logo photo</td>
+                    <td><a href="<?php echo e($setting->logo_photo); ?>" class="btn btn-default btn-rounded btn-xs"><span class="fa fa-download"></span></a></td>
+                </tr>
+                
+                <tr>
+                    <td>Icon photo</td>
+                    <td><a href="<?php echo e($setting->icon_photo); ?>" class="btn btn-default btn-rounded btn-xs"><span class="fa fa-download"></span></a></td>
+                </tr>
+                
+                <tr>
+                    <td>Google plus</td>
+                    <td><?php echo e($setting->google_plus); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Facebook</td>
+                    <td><?php echo e($setting->facebook); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Twitter</td>
+                    <td><?php echo e($setting->twitter); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Google Map API KEY</td>
+                    <td><?php echo e($setting->google_map_api); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Google Map API LOCATION</td>
+                    <td><?php echo e($setting->google_map_location); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Is controlled access</td>
+                    <td><?php if($setting->is_controlled_access == 1): ?>Yes <?php else: ?> No <?php endif; ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Commission</td>
+                    <td><?php echo e($setting->commission); ?> %</td>
+                </tr>
+                
+                <tr>
+                    <td>Transaction Charge</td>
+                    <td><?php echo e($setting->transaction_charge); ?> %</td>
+                </tr>
+                
+                <tr>
+                    <td>Created at</td>
+                    <td><?php echo e($setting->created_at); ?></td>
+                </tr>
+                
+                <tr>
+                    <td>Updated at</td>
+                    <td><?php echo e($setting->updated_at); ?></td>
+                </tr>
+                
+            <tr>
+                <td>
+                    <a href="<?php echo e(action('Settings@edit', $setting->id)); ?>" class="btn btn-info btn-sm">edit</a>                
+                </td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<?php else: ?>
+
+    <h3>No data found.</h3>
+
+<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

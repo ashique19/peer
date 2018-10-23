@@ -1,0 +1,53 @@
+
+
+<?php $__env->startSection('main'); ?>
+    <br><br><br>
+<h3>Add all fields for incomplete products link</h3>
+
+
+<?php if($errors): ?>
+
+    <?php echo e($errors->first()); ?>
+
+
+<?php endif; ?>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>URL</th>
+            <th>Added by</th>
+            <th>created at</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if($productLink): ?>
+            <?php foreach($productLink as $link): ?>
+                <tr>
+                    <td><?php echo e($link['id']); ?></td>
+                    <td><?php echo e($link['url']); ?></td>
+                    <td><?php echo e($link['owner_name']); ?></td>
+                    <td><?php echo e($link['created_at']); ?></td>
+                    <td>
+                        <a href="<?php echo e(action('LinksController@edit', $link['id'])); ?>" class="btn btn-default btn-sm btn-rounded" title="Edit link"><span class="fa fa-pencil"></span></a>
+                    </td>
+                    <?php /*<td>*/ ?>
+                        <?php /*<?php echo Form::open(['method'=>'delete', 'url'=> "admin/links/".$link['id'] ]); ?>*/ ?>
+                        <?php /*<?php echo Form::hidden('id', $link['id'] ); ?>*/ ?>
+                        <?php /*<button href="<?php echo e(action('LinksController@edit',[$link['id']])); ?>" class="btn btn-danger btn-sm btn-rounded" title="Delete link">*/ ?>
+                            <?php /*<span class="fa fa-times"></span>*/ ?>
+                        <?php /*</button>*/ ?>
+                        <?php /*<?php echo Form::close(); ?>*/ ?>
+                    <?php /*</td>*/ ?>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

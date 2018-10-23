@@ -1,0 +1,25 @@
+
+<?php $__env->startSection('title'); ?>
+<?php $__env->startSection('title'); ?>Airposted - Shipping Simplified - (404) Page not found <?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('meta'); ?>
+    <meta name="title" content="Airposted - page not found">
+    <meta name="description" content="Airposted - Requested page was not found. Please continue to Airposted.com">
+    <meta name="keywords" content="Airposted, page not found">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+
+
+<section class="row push-up-100">
+    <h1 class="text-center">Page Not Found</h1>
+    <h2 class="text-center push-up-50 push-down-50">
+        Please continue to <a href="<?php echo e(route('home')); ?>" class="btn btn-lg white-bg blue-border blue-text">Homepage</a>
+    </h2>
+</section>
+
+
+<?php $__env->stopSection(); ?>
+        
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

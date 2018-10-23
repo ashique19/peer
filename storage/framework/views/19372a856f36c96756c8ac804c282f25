@@ -1,0 +1,181 @@
+<?php $__env->startSection('title'); ?>Peerposted - Shipping Simplified - Dashboard <?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="wrapper payment-confirmation">
+        <?php echo $__env->make('user.pages.product.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div id="content">
+            <?php echo $__env->make('user.pages.product.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container-fluid setting travel">
+                <div class="col-md-12">
+                    <div class="row layer-1">
+                        <a href="#" class="pull-left">My Settings</a>
+                        <a href="#" class="pull-right">Refer a friend</a>
+                    </div>
+                    <div class="row layer-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?php echo e(route('user-settings')); ?>" class="<?php echo e(Request::is('user-settings') ? 'active' : ''); ?>">Profile</a></li>
+                            <li><a href="<?php echo e(route('password-update')); ?>" class="<?php echo e(Request::is('password-update') ? 'active' : ''); ?>">Change Password</a></li>
+                            <li><a href="<?php echo e(route('payout')); ?>" class="<?php echo e(Request::is('payout') ? 'active' : ''); ?>">Payment</a></li>
+                        </ul>
+                    </div>
+                    <div class="row layer-3">
+                        <div class="details">
+                            <span>Welcome Back!</span>
+                            <a href="<?php echo e(route('profile-update')); ?>" class="active pull-right">Edit</a>
+                        </div>
+                    </div>
+                    <div class="row layer-4">
+                        <div class="col-sm-12 col-sm-offset-1">
+
+                            <?php echo errors($errors); ?>
+
+
+                            <div class="col-xs-12 no-padding">
+
+                                <div class="col-sm-12 col-md-12 push-up-80 form-theme-1">
+                                    <section class="row white-bg">
+
+                                        <div class="col-xs-12 no-padding">
+                                            <h4 class="dark-gray-bg pull-20 ">Edit Account Settings</h4>
+                                        </div>
+
+                                        <?php echo Form::open(['class'=> 'form-horizontal', 'url'=> action('MyProfile@update'), 'enctype'=> 'multipart/form-data' ]); ?>
+
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('firstname', 'First name', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('firstname', auth()->user()->firstname, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('lastname', 'Last name', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('lastname', auth()->user()->lastname, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('contact', 'Phone no.', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <div class="row inline">
+
+                                                    <?php if(auth()->user()->country): ?>
+                                                        <?php echo Form::select('country_code', \App\Country::orderBy('phone_code')->lists('phone_code','phone_code') , auth()->user()->country->phone_code, ['class'=> 'form-control push-up-10 country_code', 'placeholder'=> '-Country code-', 'required'=> 'required']); ?>
+
+                                                        <?php echo Form::text('phone_no', str_replace(auth()->user()->country->phone_code, '', auth()->user()->contact) , ['class'=> 'form-control push-up-10 phone_no', 'placeholder'=> 'Phone number after country code', 'required'=> 'required']); ?>
+
+                                                    <?php else: ?>
+                                                        <?php echo Form::select('country_code', \App\Country::orderBy('phone_code')->lists('phone_code','phone_code') , null, ['class'=> 'form-control push-up-10 country_code', 'placeholder'=> '-Country code-', 'required'=> 'required']); ?>
+
+                                                        <?php echo Form::text('phone_no', auth()->user()->contact , ['class'=> 'form-control push-up-10 phone_no', 'placeholder'=> 'Phone number after country code', 'required'=> 'required']); ?>
+
+                                                    <?php endif; ?>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('address', 'Address', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('address', auth()->user()->address, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('city', 'City', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('city', auth()->user()->city, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('state', 'State', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('state', auth()->user()->state, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('postcode', 'Zipcode', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::text('postcode', auth()->user()->postcode, ['class'=> 'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('country', 'Country', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::select('country_id', \App\Country::orderBy('name')->lists('name', 'id'), auth()->user()->country_id, ['class'=> 'form-control select2', 'placeholder'=> '-Select Country-', 'required'=> 'required' ]); ?>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <?php echo Form::label('picture', 'Profile image', ['class'=> 'col-sm-2 col-sm-offset-1 control-label']); ?>
+
+                                            <div class="col-sm-7">
+                                                <?php echo Form::file('picture', ['class'=>'form-control']); ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 text-center">
+                                            <?php echo Form::submit('Update', ['class'=> 'btn btn-lg btn-common white-text']); ?>
+
+                                        </div>
+
+                                        <?php echo Form::close(); ?>
+
+
+                                    </section>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script >
+        $(document).ready(function(){
+
+        })
+    </script>
+    <script type="text/javascript" src="<?php echo e(asset('public/product/sidebar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/product/travel.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('public.layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

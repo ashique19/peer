@@ -1,0 +1,2073 @@
+@import "base.sass"
+
+.theme2
+    background-color: $white
+    
+    .page-content-wrap
+        background-color: $white
+        
+    .input-group-addon, .input-group-btn
+        vertical-align: middle
+    
+    /** USER AREA : General Settings **/
+    
+    .select2-container--default .select2-selection--single .select2-selection__arrow
+        top: 11px
+        
+    .page-banner
+        padding-top: 0px
+        
+    .user-panel
+        background-color: $white
+        
+        .small
+            font-size: 70%
+        
+        .costs
+            max-width: 90px
+            
+        .actions
+            max-width: 100px
+        
+        .select2 .select2-selection__rendered, .form-control
+            font-size: 12px
+        
+        h1
+            font-size: 40px
+            font-weight: 300
+            
+        h2
+            font-size: 30px
+            font-weight: 300
+            
+        img
+            max-width: 40px
+            max-height: 40px
+            border-radius: 5px
+            
+    /** HEADER AREA **/
+    
+    header
+        background: none transparent
+        width: 100%
+        z-index: 3
+        position: absolute
+        
+        .container
+            width: 1200px
+        
+        .x-navigation.x-navigation-horizontal
+            background-color: transparent
+            height: 85px
+            
+            .xn-logo
+                margin-top: 5px
+            
+            li
+                display: inline-flex
+                
+                ul
+                    width: auto
+                    min-width: 245px
+                    max-width: 100%
+                    background-color: $white
+                    top: 100%
+                    
+                    li
+                        background-color: $white
+                        
+                        a
+                            padding: 10px
+                            background-color: $lightGray
+                            border-bottom-color: $gray
+                            
+                &:hover
+                    
+                    ul
+                        display: block
+            
+            a
+                color: $blue
+                padding: 20px 12px
+                font-size: 18px
+                font-weight: 700
+                background-color: transparent
+                
+                .slim
+                    font-weight: 400
+                
+            a:hover
+                background-color: transparent
+                color: $green
+                
+            a.btn
+                height: 33px
+                vertical-align: middle
+                margin-top: 10px
+                padding: 6px 15px
+                margin-left: 10px
+                font-size: 14px
+                font-weight: 900 !important
+                border-bottom: 1px solid $white
+                border-radius: 10px !important
+                background-color: $btnGray
+                
+        &.white
+            
+            .x-navigation.x-navigation-horizontal
+                
+                a
+                    color: $white
+                    
+                li ul li a
+                    color: $blue
+                
+        .x-navigation > li.xn-logo > a:first-child
+            background-image: none
+            background-color: transparent
+            background-size: contain
+            height: 100px
+            width: 270px
+            background-position: 0 20px
+            padding-top: 22px
+            
+            img
+                display: block
+                max-height: 100%
+                max-width: 100%
+            
+        .x-navigation > li.xn-logo > a:first-child:hover
+            background-color: transparent
+            height: 85px
+            
+    
+    /** END : HEADER AREA **/
+    
+    /** Home > Slider on top **/
+    
+    .home-top-slider
+        position: relative
+        
+        .slide
+            position: relative
+            
+            .foreground
+                padding: 0 0 10% 0
+                
+                h1
+                    font-size: 80px
+        
+        .background
+            height: 100%
+            width: 100%
+            
+            img
+                width: 100%
+                height: 100%
+            
+        .foreground
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            background-color: transparent
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+            padding: 10% 0 0
+            
+            h1
+                font-size: 80px
+                font-weight: 700
+                text-align: center
+                flex: 1 1 100%
+                font-size: 70px
+                color: $white
+                
+            a
+                width: 250px
+                font-size: 25px
+                font-weight: 300
+                padding: 15px 0
+                border-radius: 15px
+                
+            p
+                color: $white
+                font-size: 26px
+                
+            .links
+                flex: 1 1 100%
+                
+    .user-menu
+        padding: 10px 12px !important
+        
+        img
+            height: 40px
+            width: 40px
+            /*border-radius: 50%*/
+            border-radius: 10%
+            
+    .profile-img-drop
+        padding: 0px
+        padding-top: 5px
+        width: 130px
+        margin: 0px
+        
+        a
+            color: $darkGray
+            &:hover
+                text-decoration: none
+                color: $darkGray
+        
+        .divider
+            height: 1px
+            margin: 9px 0
+            overflow: hidden
+            background-color: #e5e5e5
+    
+    .popover-content
+        padding: 9px 9px
+    
+    /** END : Home > Slider on top **/
+    
+    
+    /** How it works **/
+         
+    .how-it-works
+        background-color: $white
+        
+        h1
+            font-weight: 700
+            font-size: 84px
+            line-height: 0.9
+            color: $blue
+        
+        .font-weight-300
+            font-weight: 300 !important
+        
+        h2
+            font-size: 65px
+            font-weight: 300
+            color: $blue
+            
+        p
+            font-size: 22px
+            font-weight: 300
+            line-height: 1.3
+        
+        .width-120-percent
+            width: 120%
+        
+        .width-70-percent
+            width: 70%
+        
+        .post
+            margin-top: 80px
+            
+        h3
+            font-size: 46px
+            font-weight: 300
+            margin: 0px
+        
+        a:hover
+            text-decoration: none
+            
+        .services
+            
+            p
+                display: block
+            
+            img
+                max-width: 180px
+                max-height: 150px
+                
+            h4
+                font-size: 26px
+            
+    /** END : How it works **/
+    
+    /** Why us **/
+
+    .why-us
+        padding: 3% 0 6%
+        
+        &.homepage
+            margin-bottom: -50px
+            
+            [balance-height]
+                min-height: 130px
+        
+        h1
+            font-weight: 700
+            font-size: 84px
+            line-height: 0.8
+            color: $blue
+        
+        h2
+            font-size: 84px
+            font-weight: 700
+        
+        h3
+            font-size: 46px
+            font-weight: 300
+            margin: 0px
+        
+        p
+            font-size: 16px
+            font-weight: 300
+            line-height: 1.3
+        
+        .secure-padding
+            padding: 0 50px
+        
+        .cheap-padding
+            padding-right: 85px
+        
+        .easy-padding
+            padding-left: 66px
+                
+    /** END : Why us **/
+    
+    
+    /** TOP BANNER **/
+    
+        
+    .banner-margin
+        // margin-left: 26.6%
+        
+        h1
+            color: $black
+            font-size: 50px
+            font-weight: 400
+            text-align: center
+        
+    /** END : TOP BANNER **/
+    
+    /** TRAVEL & BUY AREA : ARE YOU A BUYER OR TRAVELER ? **/
+        
+    .buyer_or_traveler
+    
+        .buyer, .traveler
+            color: $gray
+            display: flex
+            align-items: top
+            justify-content: center
+            flex-flow: row wrap
+            border-radius: 20px
+            text-decoration: none
+            border: 6px solid $lightGray
+            padding: 5% 10% 0
+            width: 95%
+            -webkit-transition: border 0.3s ease-in-out
+            -moz-transition: border 0.3s ease-in-out
+            -ms-transition: border 0.3s ease-in-out
+            -o-transition: border 0.3s ease-in-out
+            transition: border 0.3s ease-in-out
+            min-height: 250px
+            margin: 0 auto
+            
+            .read-more
+                margin: 20px 0 0
+                font-size: 12px
+            
+            h1
+                flex: 0 0 100%
+                font-size: 50px
+                font-weight: 300
+                margin: 20% 0
+            
+            p
+                flex: 0 0 100%
+                font-size: 16px
+                line-height: 1.2
+                color: $darkGray
+                font-weight: 300
+                
+            ul
+                padding: 0px
+                margin: 20px 0
+                
+                li
+                    font-size: 12px
+                    line-height: 1.5
+                    color: $darkGray
+                    font-weight: 300
+                    
+            ul, p:last-child
+                display: none
+                -webkit-transition: display 1.5s ease-in-out
+                -moz-transition: display 1.5s ease-in-out
+                -ms-transition: display 1.5s ease-in-out
+                -o-transition: display 1.5s ease-in-out
+                transition: display 1.5s ease-in-out
+                font-size: 12px
+                
+            &:hover
+                
+                ul, p:last-child
+                    display: block
+                    
+                .read-more
+                    display: none
+                
+                
+        .buyer:hover
+            border-color: $blue
+            
+        .traveler:hover
+            border-color: $green
+        
+    /** TRAVEL & BUY AREA **/
+    
+    /** Client > Navs **/
+
+    .client-nav-area
+        position: relative
+        margin-top: 85px
+            
+        .nav
+            display: flex
+            background-color: transparent
+            
+            li
+                
+                margin: 0 auto
+                
+                a
+                    background-color: transparent
+                    color: $black
+                    /*change*/
+                    padding: 12px
+                    /*change*/
+                    font-weight: 400
+                
+                &:hover
+                    /** background-color: $green**/
+                    border-radius: 0px
+                    cursor: pointer
+            
+            li.active
+                
+                a
+                    /** background-color: $green**/
+                    border-radius: 0px
+                    /*change*/
+                    border: none
+                    /*added*/
+                    border-bottom: 5px solid $blue
+                        
+        .profile-img
+            position: absolute
+            right: 0
+            bottom: -25px
+            height: 50px
+            width: 50px
+            overflow: hidden
+            background-color: rgba(255,255,255, 0.7)
+            z-index: 1
+                
+                
+    /** END : Client > Navs **/
+    
+    /** User Panel **/
+
+    .user-panel
+    
+        *
+            color: $black
+            font-weight: 400
+            font-size: 16px
+        
+        h1
+            font-weight: 300
+            font-size: 45px
+            padding-left: 5px
+            
+        h2
+            padding-left: 5px
+            font-weight: 300
+            
+        .modal-header
+            background-color: transparent
+            border: 0px
+            padding-top: 30px
+            
+            .close span
+                font-size: 44px
+                color: $black
+                line-height: 1
+        
+        .user-action-ul
+            padding: 0px
+            padding-top: 80px
+            
+            &.profile-nav
+                padding-left: 5%
+                padding-right: 10%
+                
+                .profile-img
+                    max-width: 100%
+                    max-height: 100%
+            
+            /*Newly added*/
+            .user-actions
+                margin-bottom: 20px
+                
+                a
+                    text-decoration: none
+                    font-weight: 300
+                    font-size: 22px
+                    
+            .user-actions.active
+                
+                a
+                    color: $blue
+                    
+            .user-actions
+                
+                small
+                    display: block
+                    width: 100%
+                    padding: 10px 0
+                    
+                    a
+                        font-size: 12px
+                        font-weight: 400
+                        
+                        &:first-child
+                            float: left
+                            
+                        &:last-child
+                            float: right
+        
+        .small-heading
+            font-size: 30px
+            font-weight: 300
+            
+        /*Newly added ends*/  
+        
+        .form-control
+            border: 0px
+            border-radius: 10px !important
+            margin: 5px auto
+            border-radius: 3px
+            background-color: $lightGray
+            color: $black
+            height: 26px
+            font-style: italic
+            float: left
+            
+        .form-control.datepicker
+            height: 32px
+            margin-top: 10px
+        
+        .select2
+            font-style: italic
+            
+            .select2-selection__rendered
+                line-height: 30px
+                background-color: $lightGray
+                border-radius: 10px
+            
+            .select2-selection
+                border: 0px
+        
+        .help-block 
+            font-size: 12px
+            font-style: italic
+            padding-left: 10px
+        
+        .upload-image
+            display: inline-flex
+            height: 35px
+        
+        input.btn, .btn.btn-rounded
+            border-radius: 50px
+            margin: 20px 0
+            
+        .btn.btn-lg
+            padding: 12px 30px
+            font-size: 20px
+            font-weight: bold
+            
+        .table.table-responsive
+            
+            thead
+                
+                tr
+                    th
+                        background-color: $lightGray
+                        text-align: left
+                        border-radius: 0px
+                        font-weight: 500
+                        text-transform: capitalize
+                        line-height: 1.1
+                        
+            tbody
+                
+                tr
+                    
+                    td
+                        background-color: $white
+                        border-bottom: 1px solid $lightGray
+                        text-align: left
+                        text-transform: capitalize
+                        
+                        .btn
+                            background-color: transparent
+                
+    /** END : User Panel **/
+    
+    /** Login, Signup page **/
+    
+    .login-signup-page
+        margin-top: 8%
+    
+        h1 
+            font-size: 57px
+            font-weight: 300
+            margin: 0 0 2% 0
+            
+    
+    /** END : Login, Signup page **/
+    
+    /** FAQ Page  **/
+    
+    .faq-page
+        margin-top: 8%
+        
+        h1 
+            font-size: 57px
+            font-weight: 300
+            margin: 0 0 2% 0
+            
+        h2
+            font-size: 25px
+            font-weight: 300
+            color: $blue
+            margin: 8% 0 3%
+        
+        p
+            font-size: 14px
+            font-weight: 300
+            line-height: 1.5
+            
+        h3
+            font-size: 36px
+            margin: 10% 0 0
+        
+        b
+            margin-top: 0
+        
+        .left-p-width
+            
+            h2, p
+                width: 70%
+        
+        .right-p-width
+        
+            h2, p
+                width: 72%
+    
+    /** End of FAQ Page  **/
+    
+    
+    /** About us Page  **/
+    
+    .about-us-page
+        margin-top: 8%
+        
+        summary
+            padding-top: 0
+            margin-bottom: 5%
+            
+            b
+                line-height: 1.2
+        
+        h1 
+            font-size: 57px
+            font-weight: 300
+            margin: 0 0 2% 0
+            
+        h2
+            font-size: 40px
+            font-weight: 300
+            line-height: 1.2
+            
+        b
+            font-size: 30px
+            font-weight: 300
+            
+        p
+            font-weight: 300
+            font-size: 16px
+            
+        .team
+        
+            figure
+                height: 242px
+                width: 100%
+                background-color: transparent
+                display: flex
+                align-items: center
+                justify-content: center
+                
+                img
+                    max-height: 100%
+                    max-width: 100%
+            
+            p
+                font-size: 16px
+                margin-bottom: 0px
+            b
+                font-size: 16px
+                font-weight: 400
+                
+                a
+                    padding: 1px 15px 0px 17px
+                    display: inline-block
+                    height: 15px
+                    width: 15px
+                    
+                    &:nth-child(2n)
+                        padding: 1px 15px 0px 3px
+                    
+            q
+                color: $black
+                font-style: italic
+                font-weight: 100
+            
+    /** End : About us Page  **/
+    
+    
+    .how-it-works-page
+        margin-top: 8%
+        
+        iframe
+            width: 580px
+            height: 325px
+            margin: 6% auto
+        
+        .list
+            margin-bottom: 5%
+        
+        h1 
+            font-size: 57px
+            font-weight: 300
+            margin: 0 0 2% 0
+            
+        h2
+            font-size: 40px
+            font-weight: 300
+            line-height: 1.3
+            
+        b
+            font-size: 30px
+            font-weight: 300
+            
+        p
+            font-weight: 300
+            font-size: 22px
+            margin-bottom: 0px
+            line-height: 1.5
+            
+            &.small
+                font-size: 14px
+                line-height: 1.3
+                margin-left: 40px
+            
+            &.medium
+                font-size: 14px
+                line-height: 1.3
+                
+                &.larger-text
+                    font-size: 22px
+                
+            .b
+                font-weight: 400
+                
+            .btn, .btn .fa
+                font-size: 22px
+                
+        .number
+            font-size: 55px
+            color: $gray
+            font-weight: 700
+            margin-right: 10px
+            line-height: 1.05
+        
+    
+    /** END : How it works Page  **/
+    
+    /** Contact us  **/
+    
+    .contact-page
+        margin-top: 8%
+        
+        h1 
+            font-size: 57px
+            font-weight: 300
+            margin: 0 0 2% 0
+            
+        h2
+            font-size: 40px
+            font-weight: 300
+            line-height: 1.3
+            
+        p
+            font-weight: 300
+            font-size: 28px
+            line-height: 1.2
+            margin-bottom: 50px
+            
+        .btn.btn-lg
+            padding: 10px 30px
+            border-radius: 20px
+        
+    /** END : Contact us  **/
+    
+    /** Footer area **/
+    
+    footer
+        img.background
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            
+        .row
+            /*background-color: rgba(0, 0, 0, 0.9)*/
+            background-color: $black
+            position: relative
+            
+        p
+            color: $white
+            font-size: 18px
+            font-weight: 300
+            line-height: 1.4
+            margin: 0px
+        
+        .site-links
+            padding-left: 4%
+        
+        .social
+            
+            a
+                background-color: $white
+                color: $black
+                height: 50px
+                width: 50px
+                border-radius: 50%
+                padding: 15px
+                margin-right: 10px
+                
+                i
+                    font-size: 18px !important
+                    
+        .contact
+            
+            span 
+                margin-right: 0
+                margin-left: 10px
+                
+            i
+                font-size: 22px
+                width: 30px
+                margin: 0 0 20px
+                
+        address
+            
+            i
+                font-size: 28px !important
+                
+            span 
+                margin-left: 7px
+                
+        h3
+            font-size: 30px
+            /*font-weight: 500*/
+            //margin: 30px 0//
+            margin-top: 30px
+            margin-bottom: 15px
+            color: $white
+            
+        .copyright
+            background-color: rgba(0,0,0, 0.9)
+            padding: 0px
+            
+            p
+                font-size: 10px
+    
+    
+    /** END : Footer area **/
+    
+    /** main **/
+    .buy-info-post, .travel-info-post
+    
+        label
+            margin-bottom: 0
+            margin-top: 10px
+            width: 100%
+    
+    /** BUY POST : IMAGE UPLOAD **/
+    
+    .image-chooser-area
+        padding: 1%
+    
+    .image-chooser
+        border: 1px solid $lightGray
+        display: flex
+        text-align: center
+        flex-wrap: wrap
+        padding: 1% 3% 3%
+        position: relative
+        
+        &:before, &:after
+            bottom: 100%
+            right: 10px
+            border: solid transparent
+            content: " "
+            height: 0
+            width: 0
+            position: absolute
+            pointer-events: none
+        	
+        &:after
+            border-color: rgba(255, 255, 255, 0)
+            border-bottom-color: $white
+            border-width: 9px
+            margin-right: 2px
+        
+        &:before
+            border-color: rgba(211, 211, 211, 0)
+            border-bottom-color: $lightGray
+            border-width: 11px
+            margin-left: 11px
+
+        
+        label
+            display: flex
+            flex: 0 0 100%
+            font-style: italic
+            font-weight: 400
+            font-size: 14px
+            padding: 5px
+        
+        div
+            display: inline-flex
+            position: relative
+            flex: 1
+            font-size: 12px
+            flex-wrap: wrap
+            justify-content: center
+            align-items: center
+            margin: 5px
+            padding: 10px
+            background-color: $lightGray
+            
+            &:hover
+                cursor: pointer
+            
+            i
+                font-size: 34px
+                display: flex
+                flex-direction: row
+                flex: 0 0 100%
+                justify-content: center
+                align-items: center
+                
+            p
+                display: flex
+                flex-direction: row
+                flex: 0 0 100%
+                justify-content: center
+                align-items: center
+                margin: 0
+                
+            input
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 100%
+                opacity: 0
+                
+            img
+                border: 0px
+                background-color: $lightGray
+                max-width: 100%
+                opacity: 1
+                
+    /** END : IMAGE UPLOAD **/
+    
+    /** PRICE AREA **/
+    
+    .price_area
+        position: relative
+        
+        .price_summary
+            position: absolute
+            left: calc(100% + 20px)
+            width: 150px
+            padding: 10px
+            border: 1px solid $lightGray
+            background-color: $white
+            opacity: 0
+            height: 0
+            display: none
+            transition: all 0.5s ease-in-out
+            
+            &:before, &:after
+                right: 100%
+                top: 20px
+                border: solid transparent
+                content: " "
+                height: 0
+                width: 0
+                position: absolute
+                pointer-events: none
+            	
+            &:after
+                border-color: rgba(255, 255, 255, 0)
+                border-right-color: #ffffff
+                border-width: 10px
+                margin-top: -10px
+            	
+            &:before
+                border-color: rgba(211, 211, 211, 0)
+                border-right-color: #d3d3d3
+                border-width: 11px
+                margin-top: -11px
+            
+            p
+                font-weight: 400
+                margin: 0
+                
+            .small
+                font-size: 10px
+                color: $gray
+                font-decoration: italic
+                line-height: 1
+                margin-bottom: 10px
+                    
+            b
+                font-weight: 700
+    
+    /** END : PRICE AREA **/
+    
+    /** OFFERS AND INBOX **/
+    
+    .offer-inbox
+        display: flex
+        
+        .users
+            max-height: 522px
+            min-height: 500px
+            overflow: scroll
+            border: 1px solid $gray
+        
+            ul
+                margin: 0
+                padding: 0
+                
+                li
+                    list-style: none
+                    display: flex
+                    flex-flow: wrap
+                    border-bottom: 1px solid $gray
+                    
+                    &.active
+                        background-color: $lightGray
+                    
+                    a
+                        text-decoration: none
+                        display: flex
+                        flex: 0 0 100%
+                        flex-flow: wrap
+                        padding: 20px 10px
+                        
+                        // &.unread:after
+                            // content: "\f0e5"
+                            // -webkit-box-sizing: border-box
+                            // -moz-box-sizing: border-box
+                            // box-sizing: border-box
+                            // display: inline-block
+                            // font: normal normal normal 14px/1 FontAwesome
+                            // font-size: inherit
+                            // text-rendering: auto
+                            // -webkit-font-smoothing: antialiased
+                            // -moz-osx-font-smoothing: grayscale
+                            // align-self: center
+                            // color: $orange
+                        
+                        img
+                            display: flex
+                            flex: 1
+                            margin: 0 10px 0 0
+                            min-width: 70px
+                            max-width: 70px
+                            max-height: 70px
+                            background-color: $lightGray
+                            text-align: center
+                            
+                        p
+                            display: flex
+                            flex: 1
+                            flex-flow: wrap
+                            margin: 0
+                            line-height: 1
+                            align-items: center
+                            position: relative
+                            
+                            b
+                                display: flex
+                                font-weight: 700
+                                line-height: 0.5
+                                
+                                &:hover
+                                    text-decoration: underline
+                            
+                            span
+                                display: flex
+                                flex: 0 0 100%
+                                
+                            .chat-offer-counter
+                                position: absolute
+                                right: 5px
+                                bottom: 10px
+                                padding: 5px
+                                background: transparent
+                                border-radius: 50%
+                                font-size: 16px !important
+                                color: $blue !important
+                                align-items: center
+                                
+                                i
+                                    font-size: 12px !important
+                                    color: $blue !important
+                                    font-style: normal
+                                    
+                                    &:before
+                                        margin-right: 3px
+                                    
+        .inbox, .offers
+            display: flex
+            flex-direction: column
+            
+            &.minimize
+                max-width: 20px
+            
+                .list, .type, h3 > span
+                    display: none
+                
+                h3
+                    padding: 0px
+                    text-align: center
+                    
+                    img
+                        width: 15px
+            
+            h3
+                font-weight: 700
+                background-color: $lightGray
+                padding: 5px 10px
+                font-size: 20px
+                border-top: 1px solid $gray
+                border-bottom: 1px solid $gray
+                margin: 0
+                min-height: 40px
+                z-index: 1
+                
+                img
+                    width: 25px
+                    
+            .list
+                margin-bottom: auto
+                display: flex
+                flex-grow: 1
+                flex-wrap: wrap
+                justify-content: center
+                align-items: center
+                border-right: 1px solid $gray
+                position: relative
+                
+                .no-message
+                    width: 100%
+                    padding: 50px 0
+                    
+                    img
+                        max-width: 33.33%
+                        max-height: 100%
+                        margin: 0 auto 40px
+                        
+                    h3
+                        background-color: $white
+                        border: 0px
+                        line-height: 1
+                        padding: 0
+                        font-size: 22px
+                    
+                    p
+                        font-weight: 300
+                        
+                .msg-list
+                    display: none
+                    flex-wrap: wrap
+                    position: absolute
+                    height: 100%
+                    width: 0
+                    left: 0
+                    top: 0
+                    padding: 0
+                    overflow-y: scroll
+                    overflow-x: hidden
+                    
+                    &.active
+                        width: 100%
+                        display: flex
+                    
+                        
+                .item
+                    width: 100%
+                    min-height: 50px
+                    align-slef: flex-end
+                    flex: 0 0 100%
+                    padding: 20px
+                    
+                    &.left
+                        color: $white
+                        
+                        .bubble
+                            background-color: #ccebdd
+                            border-radius: 20px 20px 0 0
+                            margin-right: auto
+                            
+                            .arrow
+                                background-image: url('/public/img/settings/msg_left.png')
+                                bottom: -24px
+                                height: 25px
+                                
+                        .time
+                            padding-left: 15px
+                            text-align: left
+                    
+                    &.right
+                        color: $black
+                        
+                        .bubble
+                            background-color: #d8dae6
+                            border-radius: 20px 20px 5px 5px
+                            margin-left: auto
+                            margin-bottom: 20px
+                            
+                            .arrow
+                                background-image: url('/public/img/settings/msg_right.png')
+                                border-right: 1px solid transparent
+                                bottom: -21px
+                                height: 26px
+                                
+                        .time
+                            text-align: right
+                            padding-right: 15px
+                        
+                    .bubble
+                        position: relative
+                        max-width: 280px
+                        width: 60%
+                        padding: 10px 20px 0px
+                        margin-bottom: 15px
+                        
+                        img
+                            width: 100%
+                            max-width: 100%
+                            max-height: 100%
+                            border-radius: 0
+                        
+                        .arrow
+                            background-repeat: no-repeat
+                            background-size: contain
+                            position: absolute
+                            width: 100%
+                            left: 0
+                            
+                    .time
+                        color: $gray
+                        font-size: 10px
+                        
+                        
+            
+            .type
+                flex-direction: bottom
+                background-color: $lightGray
+                border: 1px solid $gray
+                border-left: 0px
+                margin-top: auto
+                
+            #msg
+                width: 90%
+                margin: 5% 5% 1%
+                border-radius: 15px
+                height: 60px
+                border: 1px solid $gray
+                resize: none
+                padding: 5px
+                font-size: 12px
+                
+            .send
+                padding: 1% 5%
+                display: flex
+                
+                .send-on-enter
+                    font-size: 12px
+                
+                .img-upload
+                    display: flex
+                    margin-left: auto
+                    border-radius: 5px
+                    color: $white
+                    background-color: $black
+                    position: relative
+                    padding: 0
+                    margin-right: 3px
+                    
+                    i.fa
+                        color: $white
+                        font-size: 12px
+                        margin: 0
+                        
+                    a.btn
+                        padding: 0 5px
+                    
+                #post-message
+                    width: 50px
+                    height: 25px
+                    display: flex
+                    border-radius: 5px
+                    justify-content: center
+                    font-size: 12px
+                    
+        .offers
+            display: flex
+            
+            h3
+                border-right: 1px solid $gray
+                
+            .small
+                font-size: 10px !important
+                flex: 100%
+                line-height: 1
+                padding: 0
+                margin: 0
+                color: $gray
+                
+            .toggle-inbox, .toggle-offers
+                position: absolute
+                height: 100%
+                width: 10px
+                align-items: center
+                justify-content: center
+                top: 0
+                display: flex
+                background-color: $white
+                padding: 0 2px
+                border-bottom: 1px solid $gray
+                
+                &:hover
+                    text-decoration: none
+                
+                .fa-angle-left
+                    display: block
+                
+                .fa-angle-right
+                    display: none
+                    
+                &.active
+                    
+                    .fa-angle-left
+                        display: none
+                    
+                    .fa-angle-right
+                        display: block
+                    
+            .toggle-inbox
+                left: 0px
+                border-right: 1px solid $gray
+                
+                &.active
+                    left: -20px
+                    width: 20px
+                
+            .toggle-offers
+                right: 0px
+                border-left: 1px solid $gray
+                border-right: 1px solid $gray
+            
+            .list
+                margin-bottom: auto
+                display: flex
+                flex-grow: 1
+                flex-wrap: wrap
+                justify-content: center
+                align-items: center
+                border-right: 1px solid $gray
+                position: relative
+                
+                .offer-list
+                    display: none
+                    flex-wrap: wrap
+                    position: absolute
+                    height: auto
+                    max-height: 100%
+                    width: 0
+                    left: 0
+                    top: 0
+                    padding: 0
+                    overflow: scroll
+                    overflow-y: scroll
+                    overflow-x: hidden
+                    
+                    &.active
+                        width: 100%
+                        display: flex
+                    
+                    .item
+                        width: 100%
+                        min-height: 50px
+                        align-self: flex-start
+                        flex: 0 0 100%
+                        padding: 20px
+                        display: flex
+                        flex-wrap: wrap
+                        -webkit-box-shadow: none
+                        -moz-box-shadow: none
+                        box-shadow: none
+                        border-bottom: 1px solid $gray
+                        
+                        div
+                            flex: 1
+                            justify-content: center
+                            align-items: center
+                            
+                            a.btn
+                                border-radius: 10px
+                                display: flex
+                                font-size: 16px
+                                font-weight: 500
+                                justify-content: center
+                                margin: 10px auto
+                                min-width: 50px
+                                padding: 7px
+                                width: 90px
+                            
+                            p
+                                margin: 0
+                                
+                                b
+                                    font-weight: 700
+                                
+                            .small, .small a.link
+                                color: $gray
+                                font-size: 12px
+                                font-weight: 300
+                                line-height: 1.2
+                                
+                            .small a.link
+                                text-decoration: underline
+                                
+    #msg_img_form, #update-profile-image
+        
+        .image-container
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-wrap: wrap
+            
+            .preview
+                height: 150px
+                width: 150px
+                border-radius: 10px
+                display: flex
+                align-items: center
+                justify-content: center
+                background-color: $lightGray
+                margin: 20px
+                
+                img
+                    max-width: 100%
+                    max-height: 100%
+                    
+    .counter-offer-popover, .reject-offer-popover
+        
+        font-weight: 700
+        
+        input[type=text]
+            border: 1px solid $gray
+            border-radius: 7px
+            margin: 0 10px
+            text-align: center
+            width: 100px
+            font-style: italic
+            font-size: 12px
+            height: 26px
+            
+        input[type=submit]
+            padding: 0px 7px
+            font-weight: 700
+            font-size: 12px
+    
+    /** END : 0ffer AND INBOX **/
+    
+    /** PAYMENT PAGE **/
+    
+    .delivery-status
+        
+        p:first-child
+            border-bottom: 1px solid $gray
+            padding-bottom: 10px
+            
+        a
+            text-transform: uppercase
+            
+            &:hover
+                text-decoration: none
+    
+    /** END : PAYMENT PAGE **/
+    
+    .search-result-area
+        
+        .search-item 
+            padding: 10px
+            
+            .row
+                background-color: $lightGray
+                padding: 15px
+                
+            h4
+                text-align: left
+                min-height: 40px
+                max-height: 50px
+                height: auto
+                
+                a
+                    font-weight: 700
+                    font-size: 14px
+                    
+            .message-request
+                padding: 0px
+                
+                &.pull-left-5
+                    padding-left: 5px
+                    
+                &.pull-right-5
+                    padding-right: 5px
+                
+                a
+                    font-size: 11px
+                    margin: 10px 0
+                    
+                    img
+                        max-width: 16px
+                        max-height: 16px
+                    
+                p
+                    text-align: left
+                    font-size: 12px
+                    font-weight: 400
+                    margin-bottom: 10px
+                    line-height: 1.3
+                    
+                    b
+                        font-size: 12px
+                        font-weight: 700
+                        display: block
+                    
+        
+        .img-holder
+            background-color: $white
+            border-radius: 0px
+            display: flex
+            justify-content: center
+            align-items: center
+            background-size: cover !important
+            background-repeat: no-repeat !important
+            background-position: 50% 50% !important
+            height: 200px
+            
+            &.square
+                width: 100%
+                height: auto
+                padding-top: 100%
+            
+            img
+                max-width: 100%
+                max-height: 100%
+                height: auto
+                width: auto
+            
+            a
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 100%
+                display: flex
+                justify-content: center
+                align-items: center
+                
+                .profile
+                    background-color: $black
+                    color: $white
+                    width: auto
+                    border-radius: 15px
+                    opacity: 0
+                    transition: opacity 0.5s ease-in-out
+                    padding: 3px 15px
+                    
+                &:hover
+                    
+                    .profile
+                        opacity: 1
+                        
+    .search-area
+        
+        .search-heading
+            background-color: transparent
+            border: 0px transparent
+            font-weight: 700
+            font-size: 20px
+            padding-left: 0px
+            
+            .btn
+                border-radius: 20px
+                padding: 5px 15px
+            
+        ul
+            background-color: $lightGray
+            border-radius: 10px
+            max-height: 250px
+    
+    .modal-theme-1
+    
+        .modal-content
+            padding: 25px 40px
+            font-weight: 300
+            max-width: 550px
+            margin: 0 auto
+            
+            .slim-form-control
+                background-color: $lightGray
+                width: 100px
+                border: 0px transparent
+                border-radius: 5px
+                height: 33px
+                padding: 5px
+            
+            h2
+                font-weight: 600
+                padding: 0
+                font-size: 50px
+                
+            textarea.form-control
+                background-color: $white
+                border: 1px solid $gray
+                font-weight: 300
+                min-height: 250px
+                width: 100%
+                resize: none
+            
+        .form-control
+            border-radius: 12px
+            margin: 10px 0
+            border: 1px solid $gray
+            
+        .btn
+            border-radius: 12px
+            font-weight: 300
+            
+        .btn.btn-sm
+            padding: 8px 20px
+            font-weight: 600
+            font-size: 24px
+            
+        .btn.login-button
+            border-width: 3px
+            font-weight: 400
+            padding: 10px 20px
+            
+        .modal-header
+            background-color: transparent
+            border-color: transparent
+            padding: 0px
+            margin: -10px -20px 0 0
+            
+            .close
+                color: $black
+                padding: 0
+                margin: 0
+                line-height: 0.5
+                font-size: 40px
+                font-weight: 300
+                opacity: 0.7
+                
+        .message-success
+            padding: 25px 55px
+            
+            figure
+                width: 100%
+                
+                img
+                    min-width: 150px
+                    max-width: 80%
+                    min-height: 50px
+                    max-height: 100%
+                    
+            figcaption
+                text-align: center
+                font-size: 52px
+                font-weight: 600
+                
+            figdetails
+                text-align: center
+                width: 100%
+                display: block
+                font-weight: 300
+                
+            p
+                margin: 50px auto
+                
+                a
+                    font-weight: 300
+                    font-size: 24px
+                    
+    .what-do-want-to-do
+        padding: 120px 0px
+        
+    .choose-buyer-traveler
+        padding: 10px 0 120px
+        
+    .buyer_or_traveler
+        max-width: 900px
+        margin: 0 auto
+
+    .counter-icon
+        position: absolute
+        top: -5px
+        right: -5px
+        padding: 3px
+        border-radius: 50%
+        background-color: $green
+        font-size: 8px
+        color: $white
+        
+    .homepage img
+        max-width: 400px
+        
+    iframe
+        width: 414px
+        height: 233px
+    
+    .country_code
+        width: 25%
+        max-width: 100px
+        
+    .phone_no
+        max-width: calc(100% - 100px)
+    
+    .tour-focus
+        z-index: 3
+        position: absolute
+        top: 0px
+        left: 0px
+        height: 0
+        width: 0
+        background-color: transparent
+        border: 0px solid rgba(0,0,0, 0.75)
+        border-top-width: 200px
+        overflow: hidden
+        display: none
+        
+    .guide
+        display: none
+        position: absolute
+        left: 20px
+        top: 20px
+        height: auto
+        width: auto
+        background-color: $white
+        border-radius: 3px
+        z-index: 5
+        max-width: 350px
+        min-width: 300px
+        padding: 12px
+        
+        &:after
+            width: 50px
+            font-size: 32px !important
+            display: inline-block
+            text-align: right
+            margin-right: 10px
+            display: inline-block
+            font: normal normal normal 14px/1 FontAwesome
+            font-size: inherit
+            text-rendering: auto
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+            content: "\f0d7"
+            position: absolute
+            bottom: -18px
+            left: 25px
+            color: $white
+            
+        h3
+            font-size: 22px
+            
+        .serial
+            position: absolute
+            left: -12px
+            top: -12px
+            background-color: $orange
+            width: 30px
+            height: 30px
+            border-radius: 50%
+            align-items: center
+            justify-content: center
+            display: flex
+            color: #fff
+            font-size: 18px
+            font-weight: 700
+            border: 2px solid $white
+            
+    .references
+    
+        ul
+            display: inline-flex !important
+            flex-wrap: wrap
+            align-items: center
+            justify-content: center
+            margin-top: 50px
+            width: 100%
+            
+            li
+                flex: 1
+                justify-content: center
+                
+                img
+                    max-width: 120px
+                    margin: 0 auto
+                    
+    .guide.welcome#guide-1 
+        left: 40% !important
+        
+    .popover-content 
+        min-height: 100px
+        
+        a
+            padding: 3px 5px
+            width: 100px
+            margin-top: 10px
+            
+        form.stripe
+            position: relative
+            
+            .stripe-button-el
+                background: 0 0
+                border: 1px solid $blue
+                margin-top: 10px
+                width: 100px
+                height: 30px
+                background-color: $white
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 1
+                
+                span
+                    display: block
+                    min-height: 10px !important
+                    background: transparent
+                    color: $blue
+                    font-weight: 400
+                    font-size: 10px
+                    text-shadow: none
+                    height: auto
+                    padding: 0px
+                    box-shadow: none
+                    line-height: 23px
+                    
+            .loading
+                position: absolute
+                top: 0
+                left: 0
+                max-width: 100px
+                font-size: 9px
+                height: 30px
+                margin-top: 10px
+                z-index: 0
+                overflow: hidden
+                padding-left: 5px
+    
+    .blog-list
+        display: flex
+        flex-wrap: wrap
+        
+    .blog-list > .col-md-6
+        flex: 0 0 50%
+
+    .box-option, .gateway-option
+        position: relative
+        transition: all 0.4s ease
+        border: 3px solid transparent
+        
+        &:hover
+            border: 3px solid $blue
+        
+        &.active
+            border: 3px solid $green
+            
+        img
+            max-height: 100%
+            max-width: 100%
+        
+        input
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            opacity: 0
+            z-index: 1
+            
+    .stripe-button-holder
+        position: relative
+        
+        a
+            position: relative
+            
+        form, form button
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            z-index: 1
+            opacity: 0
+            
+    .add-item-to-order, .del
+        
+        i.fa
+            border: 1px solid $gray
+            border-radius: 5px
+            font-size: 24px
+            padding: 10px
+            
+    .cart-summary-img
+        height: 70px
+        width: 70px
+        border: 1px solid $gray
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 10px
+        float: left
+        margin: 0px 10px 15px
+        border-radius: 5px
+        
+        img
+            max-width: 100%
+            max-height: 100%
+            
+    .product-detail-price
+        
+        a
+            max-width: calc(100% - 80px)
+            overflow-x: scroll
+            white-space: normal
+            text-align: justify
+            
+    .product-dimension-reference img
+        max-width: 100%
+        max-height: 100%
+        width: 60%
+        margin: 0 auto
+        
+    a.notification
+        
+        i
+            position: relative
+    
+            sup 
+                position: absolute
+                top: 0px
+                left: 20px
+                font-size: 14px
+                
+    .payment-botton-holder
+        position: relative
+        
+        span.buttons
+            position: absolute
+            top: 23px
+            width: 136px
+            height: 80px
+            background-color: $white
+            border: 1px solid $green
+            left: -43px
+            padding: 10px
+            display: none
+            z-index: 3
+            border-radius: 5px
+            
+            .paypal
+                position: absolute
+                top: 7px
+                width: 118px
+                height: 28px
+                padding: 3px 2px
+                
+            .stripe
+                position: absolute
+                top: 27px
+                
+                .loading, button
+                    position: absolute
+                    font-size: 11px
+                    top: 13px
+                    padding: 3px 2px
+                    width: 116px
+                    height: 28px
+                    background: #fff none !important
+                    
+                .loading
+                    z-index: 0
+                    
+                button
+                    z-index: 1
+                    
+                    span
+                        padding: 0
+                        width: 116px
+                        height: 28px
+                        border: 1px solid $blue !important
+                        position: absolute
+                        top: 0
+                        left: 0
+                        background: transparent none !important
+                        box-shadow: none
+                        color: $blue
+                        font-size: 11px
+                    
+        &:hover
+            
+            span.buttons
+                display: block
+                
+        
+            
+    @media only screen and (max-width : 800px)
+        @import "800px.sass"
+    
+    @media only screen and (max-width : 400px)
+        @import "400px.sass"

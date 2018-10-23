@@ -1,0 +1,318 @@
+
+
+<?php $__env->startSection('main'); ?>
+<section class="panel">
+    
+    <h1>
+        <center><?php if($app): ?> <?php echo e($app->application_name); ?> - <?php echo e($app->application_slogan); ?> <?php endif; ?> <br>(Admin panel)</center>
+    </h1>
+    
+    <div class="row">
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Users@buyersTravelers')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\User::buyerTraveler()->count()); ?></div>
+                    <div class="widget-title">Total Users</div>
+                    <div class="widget-subtitle"><?php echo e(\App\User::joinedToday()->count()); ?> Today, <?php echo e(\App\User::joinedThisWeek()->count()); ?> Last week, <?php echo e(\App\User::joinedLastMonth()->count()); ?> Last 30 Days</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Offers@index')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-archive"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\Offer::agreed()->notReply()->count()); ?> / <?php echo e(\App\Offer::notReply()->count()); ?></div>
+                    <div class="widget-title">Total Offers</div>
+                    <div class="widget-subtitle"><?php echo e(\App\Offer::agreed()->notReply()->today()->count()); ?>/<?php echo e(\App\Offer::today()->notReply()->count()); ?> Today, <?php echo e(\App\Offer::agreed()->notReply()->thisWeek()->count()); ?>/<?php echo e(\App\Offer::thisWeek()->notReply()->count()); ?> Last week</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Payments@index')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-money"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\Payment::verified()->count()); ?> / <?php echo e(\App\Payment::count()); ?></div>
+                    <div class="widget-title">Total Payments</div>
+                    <div class="widget-subtitle"><?php echo e(\App\Payment::today()->verified()->count()); ?>/<?php echo e(\App\Payment::today()->count()); ?> Today, <?php echo e(\App\Payment::thisWeek()->verified()->count()); ?>/<?php echo e(\App\Payment::thisWeek()->count()); ?> Last week</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Buyers@index')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-shopping-cart"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\Buyer::count()); ?></div>
+                    <div class="widget-title">Total Buy Posts</div>
+                    <div class="widget-subtitle"><?php echo e(\App\Buyer::today()->count()); ?> Today, <?php echo e(\App\Buyer::thisWeek()->count()); ?> Last week, <?php echo e(\App\Buyer::lastMonth()->count()); ?> Last 30 Days</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Travels@index')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-plane"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\Travel::count()); ?></div>
+                    <div class="widget-title">Total Travel Posts</div>
+                    <div class="widget-subtitle"><?php echo e(\App\Travel::today()->count()); ?> Today, <?php echo e(\App\Travel::thisWeek()->count()); ?> Last week, <?php echo e(\App\Travel::lastMonth()->count()); ?> Last 30 Days</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        <div class="col-md-4">
+                            
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo e(action('Travels@index')); ?>';">
+                <div class="widget-item-left">
+                    <span class="fa fa-comment"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count"><?php echo e(\App\Chat::count()); ?></div>
+                    <div class="widget-title">Total Chat</div>
+                    <div class="widget-subtitle"><?php echo e(\App\Chat::today()->count()); ?> Today, <?php echo e(\App\Chat::thisWeek()->count()); ?> Last week</div>
+                </div>
+                <div class="widget-controls">                                
+                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove section"><span class="fa fa-times"></span></a>
+                </div>                            
+            </div>                            
+            <!-- END WIDGET REGISTRED -->
+            
+        </div>
+        
+        
+    </div>
+    
+    <div class="row">
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>New Users last 30 days</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="user-signup-month-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+                            
+        </div>
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Offers last 30 days</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="offers-month-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+        </div>
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Chats last 30 days</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="chat-month-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+        </div>
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Signup stat by Country</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="users-by-country" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+        </div>
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Travels (From) by Country</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="travel-by-country" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+        </div>
+        
+        <div class="col-xs-12">
+                            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>buys by Country</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="buy-by-country" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+        </div>
+        
+        
+        <div class="col-xs-12">
+            <h2 class="page-heading">Yearly Graphs</h2>
+            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>New Users last 12 Months</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="user-signup-year-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Buy Post last 12 Months</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="buys-year-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+            
+            <!-- START NEW USERS BLOCK -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Travel Post last 12 Months</h3>
+                    </div>                                    
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                    </ul>                                    
+                </div>                                
+                <div class="panel-body padding-0">
+                    <div class="chart-holder" id="travel-year-graph" ></div>
+                </div>                                    
+            </div>
+            <!-- END NEW USERS BLOCK -->
+            
+            
+        </div>
+        
+    </div>
+    
+</section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,240 @@
+
+
+
+
+/**
+* 
+* Start::Base styles
+*
+*/
+
+body{
+    margin: 0 auto;
+}
+
+a{
+    color: #444444;
+}
+
+blockquote p {
+    line-height: 14px;
+}
+
+.no-padding{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.white-text{
+    color: white !important;
+}
+
+.white-text:hover{
+    color: #ed217c !important;
+}
+
+.black-text{
+    color: #222222 !important;
+}
+
+.gray-text {
+    color: #efefef;
+}
+
+.blue-text{
+    /*color: rgb(240, 7, 123) !important;*/
+    /*color: #0080c5 !important;*/
+    color: #3fbae4 !important;
+}
+
+.theme-text{
+    color: #ed217c;
+}
+
+.blue-bg{
+    /*background-color: #0080c5 !important;*/
+    background-color: #3fbae4 !important;
+}
+
+.center{
+    float: none !important;
+    clear: both;
+    margin: 0 auto;
+    position: relative;
+}
+
+.center-text{
+    text-align: center !important;
+}
+
+.btn-info{
+    background-color: #3fbae4;
+    border-color: #3fbae4;
+}
+
+.btn-danger{
+    background-color: #EB1A23;
+    border-color: #EB1A23;
+}
+
+.btn.btn-rounded.btn-danger{
+    color: #EB1A23;
+}
+
+.btn-square{
+    border-radius: 0px;
+}
+
+small{
+    margin-left: 7px;
+    padding-left: 15px;
+}
+
+.box-shadow-gray{
+    box-shadow: 3px 3px 6px #222;
+}
+
+.text-shadow-gray{
+    text-shadow: 3px 3px 6px #222;
+}
+
+.datepicker.datepicker-dropdown, .bootstrap-timepicker-widget{
+    transform: translate(-50%, 0);
+}
+
+.form-inline .form-control{
+    margin: 5px;
+}
+
+.x-navigation > li.xn-logo > a:first-child{
+    background: url("/public/product/home/images/pp/logo.png") center center no-repeat transparent !important;
+    background-size: contain !important;
+}
+
+.nav-profile {
+    z-index: 1;
+    background-color: rgba(51,65,78, 0.9);
+}
+
+.nav-profile > a {
+    border: 2px solid #5B5F63 !important;
+    border-radius: 30px 0% 0% 30px !important;
+    padding-top: 11px !important;
+    padding-bottom: 5px !important;
+    margin-top: -10px;
+    background-color: transparent !important;
+    min-width: 160px;
+    max-width: 245px !important;
+}
+
+.nav-profile > a:hover{
+    background-color: transparent !important;
+    transition: width 2s inset !important;
+}
+
+.nav-profile > a > img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile-details-heading {
+    width: 150px;
+    display: inline-block;
+}
+
+.profile-bg{
+    background: rgb(125,185,232) center center no-repeat;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,2989d8+50,1e5799+100 */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%, rgba(41,137,216,1) 50%, rgba(30,87,153,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 50%,rgba(30,87,153,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 50%,rgba(30,87,153,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.thumb-xs{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-top: -10px;
+}
+
+.dropzone{
+    border: 2px dashed rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.media, .media-body {
+    overflow: initial;
+}
+
+/**
+* 
+* End::Base styles
+*
+*/
+
+
+
+
+
+/**
+* 
+* Start::Login page styles
+*
+*/
+
+.login-container{
+    background-image: none;
+    background-color: transparent;
+}
+
+.login-container .login-box .login-logo {
+    background: url("/public/img/settings/logo.png") top center no-repeat transparent !important;
+    width: 100%;
+    height: 50px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.login-container .login-box .login-footer a{
+    color: #ed217c;
+}
+
+.login-container .login-box .login-body .form-control{
+    color: #333;
+}
+
+/**
+* 
+* End::Login page styles
+*
+*/
+
+
+/**
+*    
+*    Footer area
+*
+*/
+
+.footer {
+    background-color: #333;
+    margin-left: -12px !important;
+    width: 103%;
+}
+
+.list-group-contacts a {
+    margin: 3px;
+    text-align: left;
+    padding-left: 10% !important;
+}
+
+.social-icon {
+    width: 50px !important;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 22px;
+    margin: 5px;
+}
