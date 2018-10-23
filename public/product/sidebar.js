@@ -52,12 +52,7 @@ $(document).ready(function () {
 
                     }
                     discount = Math.floor((Math.random() * 10) + 1);
-                    productsDiv += '<div class="item col-xs-3 col-lg-3"><div class="thumbnail"><a href="#" class="btn btn-danger discount">-'+discount+'%</a><img class="group list-group-image" src="'+img+'" alt="" /><a href="'+product.url+'" target="_blank"><img class="group hover-icon-eye" src="'+ROOT_URL + ASSET_DIR+'details.svg" alt="" /></a>' +
-                        '<div class="caption"><h4 class="group inner list-group-item-heading"><a class="product-link" href="'+detailsUrl+'" >'+product.title+'</a></h4>' +
-                        '<p class="group inner list-group-item-text">'+product.category+'</p>' +
-                        '<div class="row"><div class="col-xs-12 col-md-10"><p class="lead amount">'+product.currency+' <b>' +product.price+'</b></p></div>' +
-                        '<div class="col-xs-12 col-md-2"><i class="glyphicon glyphicon-heart pull-right heart"></i></div></div></div></div></div>';
-
+                    productsDiv += '<div class="item col-xs-3 col-lg-3"><div class="thumbnail"><a href="#" class="btn btn-danger discount">-'+discount+'%</a><img class="group list-group-image" src="'+img+'" alt="" /><a href="'+product.url+'" target="_blank"><img class="group hover-icon-eye" src="'+ROOT_URL + ASSET_DIR+'details.svg" alt="" /></a><img class="group hover-icon-cart hidden" src="'+ROOT_URL + ASSET_DIR+'add_to_cart.svg" alt="" />'
 
                     if(column === 3) {
                         productsDiv += '</div>';

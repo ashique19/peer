@@ -71,17 +71,17 @@
 				          <!-- Text input-->
 				          <div class="form-group">
 				            <div class="col-sm-10">
-				              <input type="text" name="from_address" placeholder="Address" class="form-control" required>
+				              <input type="text" name="from_address" placeholder="Address" class="form-control hidden" value="---" required>
 				            </div>
 				          </div>
 			
 				          <!-- Text input-->
 				          <div class="form-group">
 				            <div class="col-sm-4">
-				              <input type="text" name="from_state" placeholder="State" class="form-control" required>
+				              <input type="text" name="from_state" placeholder="State" class="form-control hidden" value="---" required>
 				            </div>
 				            <div class="col-sm-4">
-				              <input type="text" name="from_zip" placeholder="Zipcode" class="form-control" required>
+				              <input type="text" name="from_zip" placeholder="Zipcode" class="form-control hidden" value="---" required>
 				            </div>
 				          </div>
 				        </fieldset>

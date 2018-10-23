@@ -89,6 +89,7 @@
 </div>
 <!--Mainmenu-area/-->
 
+
 <!--Header-area-->
 <header class="full-height relative v-center" id="home">
     <div class="absolute"></div>
@@ -96,64 +97,34 @@
         <div class="row v-center">
             <div class="col-md-12">
                 <div class="screen-slider-">
-                    <!--<div class="item row">-->
-                    <!--    <div class="v-center">-->
-                    <!--        <div class="col-xs-offset-2 col-xs-10 col-md-4">-->
-                    <!--            <div class="caption-photo " data-animation="animated fadeInRight">-->
-                    <!--                <img src="{{asset('public/product/home/images/slider/Banner1.png')}}" alt="" style="height:350px;width: 200px;">-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--        <div class="col-xs-12 col-md-6">-->
-                    <!--            <div class="caption-title" data-animation="animated fadeInUp">-->
-                    <!--                <p class="title-sm bold text_color_1">Packed Your Bag Tight</p>-->
-                    <!--                <p class="title-lg bold text_color_1">Earn Extra $</p>-->
-                    <!--            </div>-->
-                    <!--            <div class="caption-button" data-animation="animated fadeInUp">-->
-                    <!--                <a href="{{route('product-lists')}}" class="button pp-bg btn-big">See Available Products</a>-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
-                    <!--<div class="item row">-->
-                    <!--    <div class="v-center">-->
-                    <!--        <div class="col-xs-12 col-md-4">-->
-                    <!--            <div class="caption-title" data-animation="animated fadeInUp">-->
-                    <!--                <p class="title-sm bold text_color_1">A better way to buy</p>-->
-                    <!--            </div>-->
-                    <!--            <div class="caption-button" data-animation="animated fadeInUp">-->
-                    <!--                <a href="{{route('product-lists')}}" class="button pp-bg btn-big">Start Shopping</a>-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--        <div class="col-xs-12 col-md-4">-->
-                    <!--            <div class="caption-photo one" data-animation="animated fadeInRight">-->
-                    <!--                <img src="{{asset('public/product/home/images/slider/Banner2.png')}}" alt="" style="height:350px;width: 300px;">-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--        <div class="col-xs-12 col-md-4">-->
-                    <!--            <div class="caption-title" data-animation="animated fadeInUp">-->
-                    <!--                <p class="title-sm bold text_color_1">A better way to Travel</p>-->
-                    <!--            </div>-->
-                    <!--            <div class="caption-button" data-animation="animated fadeInUp">-->
-                    <!--                <a href="{{route('product-lists')}}" class="button pp-bg btn-big">Start Travelling</a>-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-
-                    <!--    </div>-->
-                    <!--</div>-->
                     <div class="item row">
                         <div class="v-center">
                             <div class="col-xs-12 col-md-6">
-                                <div class="caption-title" data-animation="animated fadeInUp">
-                                    
-                                    <p class="title-lg bold"></p>
-                                    <h1><strong>A better way to <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop overseas, <br> A better way to <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;earn as you travel</strong></h1>
-                                </div>
-                                <div class="caption-title caption-desc" data-animation="animated fadeInUp">
-                                    <p class="bold text_color_1">PeerPosted connects shoppers and travelers who help each other access the world.</p>
-                                    <!--<p class="title-sm bold text_color_1">of Your Home</p>-->
-                                </div>
-                                <div class="caption-button" data-animation="animated fadeInUp">
-                                    <a href="{{route('product-lists')}}" class="button pp-bg btn-big">See Available Products</a>
+                                <div class="screen-slider">
+                                    <div class="item">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <p class="title-lg bold">Overseas Shopping Made Easy</p>
+                                        </div>
+                                        <div class="caption-title caption-desc" data-animation="animated fadeInUp">
+                                            <p class="bold text_color_1">Shop around the world from the comfort of your home.</p>
+                                            <!--<p class="title-sm bold text_color_1">of Your Home</p>-->
+                                        </div>
+                                        <div class="caption-button" data-animation="animated fadeInUp">
+                                            <a href="{{route('product-lists')}}" class="button pp-bg btn-big">See Available Products</a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="caption-title" data-animation="animated fadeInUp">
+                                            <p class="title-lg bold">Earn Money as you Travel</p>
+                                        </div>
+                                        <div class="caption-title caption-desc" data-animation="animated fadeInUp">
+                                            <p class="bold text_color_1">Pack a few items in your bag and earn extra cash every time you travel home.</p>
+                                            <!--<p class="title-sm bold text_color_1">of Your Home</p>-->
+                                        </div>
+                                        <div class="caption-button" data-animation="animated fadeInUp">
+                                            <a href="{{route('product-lists')}}" class="button pp-bg btn-big">See Available Products</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-md-4 col-md-offset-2">
@@ -164,18 +135,18 @@
                         </div>
                     </div>
                 </div>
-            </div><br><br>
-            <div class="col-md-12 header-bottom header-text">
-                <div class="col-md-6">
-                    <div class="left-icon">
-                        <a href="{{route('product-lists')}}"><img src="{{asset('public/product/home/images/pp/search.svg')}}" /></a>
-                    </div>
-                    <h1>Click to search your desire</h1>
-                </div>
-                {{--<div class="col-md-6 text-right">--}}
-                    {{--<img src="{{asset('public/product/home/images/pp/search.svg')}}">--}}
-                {{--</div>--}}
             </div>
+            <!--<div class="col-md-12 header-bottom header-text">-->
+            <!--    <div class="col-md-6">-->
+            <!--        <div class="left-icon">-->
+            <!--            <a href="{{route('product-lists')}}"><img src="{{asset('public/product/home/images/pp/search.svg')}}" /></a>-->
+            <!--        </div>-->
+            <!--        <h1>Click to search your desire</h1>-->
+            <!--    </div>-->
+            <!--    {{--<div class="col-md-6 text-right">--}}-->
+            <!--        {{--<img src="{{asset('public/product/home/images/pp/search.svg')}}">--}}-->
+            <!--    {{--</div>--}}-->
+            <!--</div>-->
         </div>
     </div>
 </header>
@@ -235,7 +206,7 @@
                                 </div>
                                 <div class="item-bottom text-left">
                                     <h4><b>{{$product->title}}</b></h4>
-                                    <p>${{$product->price}}</p>
+                                    <p>BDT {{$product->price}}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -243,7 +214,7 @@
                         <div class="alert alert-success">No Products found</div>
                     @endif
                 </div>
-                <h3 class="text-right"><a href="{{route('product-lists')}}"><b>All Products</b></a></h3>
+                <!--<h3 class="text-right"><a href="{{route('product-lists')}}"><b>All Products</b></a></h3>-->
             </div>
         </div>
     </div>
@@ -266,7 +237,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Add your travel to calender</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/t1.png"></img>
+                            <img width="75%" src="/public/img/icon/t1.png"></img>
                         </figure>
                         <p class="text-center">Becoming a Traveler is as easy as Signing up on our website and uploading your travel schedule to our calendar.
                         </p>
@@ -275,7 +246,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Choose which product to buy</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/t2.png"></img>
+                            <img width="75%" src="/public/img/icon/t2.png"></img>
                         </figure>
                         <p class="text-center">You can choose which items to buy based around your travel schedule and personal convenience.
                         </p>
@@ -284,7 +255,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Deliver to Us</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/t3.png"></img>
+                            <img width="75%" src="/public/img/icon/t3.png"></img>
                         </figure>
                         <p class="text-center">Upon your return, you may deliver the packages to the designated location, or one of our agents can pick them up from you.
                         </p>
@@ -293,7 +264,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Collect your fee</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/t4.png"></img>
+                            <img width="75%" src="/public/img/icon/t4.png"></img>
                         </figure>
                         <p class="text-center">Once the buyer has confirmed delivery of the product, you will receive your fee within three working days. 
                         </p>
@@ -321,7 +292,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Find your product</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/b1.png"></img>
+                            <img width="75%" src="/public/img/icon/b1.png"></img>
                         </figure>
                         <p class="text-center">Our partnership with eBay means their entire catalog is available to our Buyers, simply click on an eBay item and it goes to your shopping. You can also browse through some of the biggest online retailers (like Amazon) and post the link for the product on Peerposted.
                         </p>
@@ -332,7 +303,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Make your payment</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/b2.png"></img>
+                            <img width="75%" src="/public/img/icon/b2.png"></img>
                         </figure>
                         <p class="text-center">Our secure payment gateway lets you  purchase any product you desire using your local credit/debit card, bKash or direct bank transfer.
                         </p>
@@ -341,7 +312,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <h3 class="bullte-title text-center balance-height">Get your product</h3>
                         <figure class="text-center">
-                            <img width="75%" src="../icon/b3.png"></img>
+                            <img width="75%" src="/public/img/icon/b3.png"></img>
                         </figure>
                         <p class="text-center">Our agents will deliver your packages right to your door. 
                         </p>
@@ -638,21 +609,21 @@ Whether you are a Buyer or a Traveller, working with us will be an easy and hass
     <div class="footer-middle">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-4 left">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Career</a></li>
+                <div class="col-xs-12 col-sm-8 left">
+                    <!--<li><a href="#">About Us</a></li>-->
+                    <!--<li><a href="#">Career</a></li>-->
                     <li><a href="#">Terms</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </div>
-                <div class="col-xs-12 col-sm-4 middle text-center">
+                <div class="col-xs-12 col-sm-4 middle text-right">
                     <img src="{{asset('public/product/home/images/pp/demo.jpg')}}" class="img-responsive">
                     <img src="{{asset('public/product/home/images/pp/demo.jpg')}}" class="img-responsive">
                 </div>
-                <div class="col-xs-12 col-sm-4 right">
-                    <p>Subscribe Us</p>
-                    <input type="text" name="" class="form-control">
-                    <button class="button">Subscribe</button>
-                </div>
+                <!--<div class="col-xs-12 col-sm-4 right">-->
+                <!--    <p>Subscribe Us</p>-->
+                <!--    <input type="text" name="" class="form-control">-->
+                <!--    <button class="button">Subscribe</button>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

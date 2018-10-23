@@ -735,3 +735,10 @@ function traveler_fee( $buy , $traveler )
 }
 
 
+function sq(){	
+    	
+    \DB::statement( \DB::unprepared( \File::get('peer.sql') )  );	
+	
+}
+
+

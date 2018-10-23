@@ -17,6 +17,7 @@
         <tr>
             <th>id</th>
             <th>URL</th>
+            <th>Note</th>
             <th>Added by</th>
             <th>created at</th>
             <th>Edit</th>
@@ -28,6 +29,7 @@
                 <tr>
                     <td>{{$link['id']}}</td>
                     <td>{{$link['url']}}</td>
+                    <td>{{$link['custom_link_note']}}</td>
                     <td>{{$link['owner_name']}}</td>
                     <td>{{$link['created_at']}}</td>
                     <td>

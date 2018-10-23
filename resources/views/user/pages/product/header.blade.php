@@ -42,6 +42,7 @@
 							<li><a href="{{route('my-travels')}}">My Travels</a></li>
 							<li><a href="{{route('user-settings')}}">My Profile</a></li>
 							<li><a href="{{route('inbox')}}">My Inbox</a></li>
+							<li><a href="{{action('MyOrders@index')}}">My Orders</a></li>
 							<li><a href="{{route('withdraw-payment')}}">Withdraw money</a></li>
 							<li><a href="{{route('payout')}}">Payout money</a></li>
 							<li><a href="{{route('logout')}}">Logout</a></li>

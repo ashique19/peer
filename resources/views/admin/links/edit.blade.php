@@ -18,7 +18,7 @@
         {!! Form::text('title', $link->title , ['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('description','Title : ') !!}
+        {!! Form::label('description','Description : ') !!}
         {!! Form::text('description', $link->description , ['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
@@ -34,8 +34,16 @@
         {!! Form::text('category', $link->category , ['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('url','URL : ') !!}
+        {!! Form::label('url','Product URL : ') !!}
         {!! Form::text('url', $link->url , ['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">	
+        {!! Form::label('Note','User Note on Custom Link : ') !!}	
+        {!! Form::text('custom_link_note', $link->custom_link_note , ['class'=>'form-control']) !!}	
+    </div>	
+    <div class="form-group">	
+        {!! Form::label('image','Image URL : ') !!}	
+        {!! Form::text('image', $link->image , ['class'=>'form-control']) !!}	
     </div>
     <div class="form-group">
         {!! Form::submit('Update Product', ['class'=>'form-control btn btn-info']) !!}

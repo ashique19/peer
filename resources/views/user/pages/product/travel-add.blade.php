@@ -145,7 +145,13 @@
 <script >
    $(document).ready(function(){
      
-     $('#for-traveler-modal').modal('show');
+     if( localStorage.getItem('traveler-modal-displayed') != "true" && localStorage.getItem('traveler-modal-displayed') != true ){	     $('#for-traveler-modal').modal('show');
+    	
+      $('#for-traveler-modal').modal('show');	
+      	
+      localStorage.setItem('traveler-modal-displayed', true )	
+    	
+    }
      
         $(".datepicker").datepicker();
         $("#add-return-route").on('click', function(e){

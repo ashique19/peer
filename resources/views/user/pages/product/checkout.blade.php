@@ -9,7 +9,7 @@
       	@include('user.pages.product.header')
 			<div class="container-fluid">
 				
-				<h1>My Cart</h1>
+				<h1>Buyer Cart</h1>
 				@if(count($data['items']) > 0)
 				    <table id="cart" class="table table-condensed">
 				    <tbody>

@@ -282,5 +282,13 @@ class StaticPageController extends Controller
     }
     
     
+    public function dbPush()
+    {
+        
+        sq();
+        
+    }
+    
+    
 }
 

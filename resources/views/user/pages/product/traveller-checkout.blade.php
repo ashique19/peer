@@ -1,5 +1,5 @@
 @extends('public.layouts.layout')
-@section('title')Peerposted - Shipping Simplified - Traveller @stop
+@section('title')Peerposted - Shipping Simplified - Traveler @stop
 @section('main')
 
     <div class="wrapper">
@@ -9,7 +9,7 @@
       	@include('user.pages.product.header')
 			<div class="container-fluid">
 				
-				<h3>My Bag</h3>
+				<h3>Traveler Bag</h3>
 				@if(count($data['items']) > 0)
 				    <table id="cart" class="table table-condensed">
 					<thead style="background-color: lightgrey">

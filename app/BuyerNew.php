@@ -9,7 +9,7 @@ class BuyerNew extends Model
 
     protected $table = "buyers_new";
     
-    protected $fillable = ['id', 'title', 'url', 'image', 'price', 'description', 'quantity', 'from_country_id', 'to_country_id', 'city_id', 'user_id', 'from_address', 'from_state', 'from_zip', 'to_address', 'to_state', 'to_zip', 'user_id', 'status','created_at', 'updated_at'];
+    protected $fillable = ['id', 'title', 'url', 'image', 'price', 'description', 'quantity', 'from_country_id', 'to_country_id', 'city_id', 'user_id', 'from_address', 'from_state', 'from_zip', 'to_address', 'to_state', 'to_zip', 'user_id', 'status','created_at', 'updated_at'];    
     
     protected $casts = [
     ];

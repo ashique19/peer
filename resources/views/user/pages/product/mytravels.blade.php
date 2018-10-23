@@ -9,14 +9,14 @@
             @include('user.pages.product.header')
             <div class="container-fluid travel">
                 <div class="col-md-12">
-                    <div class="row layer-1">
-                        <a href="#" class="pull-left">My Travels</a>
-                        <a href="{{route('travel-add')}}" class="pull-right">Add New Travels</a>
-                    </div>
+                    <!--<div class="row layer-1">-->
+                    <!--    <a href="#" class="pull-left">My Travels</a>-->
+                    <!--    <a href="{{route('travel-add')}}" class="pull-right">Add New Travels</a>-->
+                    <!--</div>-->
                     <div class="row layer-2">
                         <ul class="nav navbar-nav">
                             <li><a href="{{route('my-travels')}}" class="{{ ($tab == 'active') ?  'active' : ''}}">Active Travels</a></li>
-                            <li><a href="{{route('my-upcoming-travels')}}" class="{{ ($tab == 'upcoming') ?  'active' : ''}}">Upcoming Travels</a></li>
+                            <!--<li><a href="{{route('my-upcoming-travels')}}" class="{{ ($tab == 'upcoming') ?  'active' : ''}}">Upcoming Travels</a></li>-->
                             {{--<li><a href="#" class="{{ ($tab == 'successful') ?  'active' : ''}}">Successful Travels</a></li>--}}
                             {{--<li><a href="#" class="{{ ($tab == 'canceled') ?  'active' : ''}}">Cancelled Travels</a></li>--}}
 {{--                            <li><a href="#" class="{{ ($tab == 'archived') ?  'active' : ''}}">Archived Travels</a></li>--}}

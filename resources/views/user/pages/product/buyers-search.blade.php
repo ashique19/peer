@@ -36,7 +36,7 @@
 					            	<a href="#" class="btn btn-primary pull-right" >Earn: {{round($buyer->price * .125, 2)}}</a>
 					                <img class="group list-group-image" src="{{$buyer->image}}" alt="" />
 					                <a href="{{$buyer->url}}" target="_blank"><img class="group hover-icon-eye" src="{{asset('public/img/peerposted/images/details.svg')}}" alt="" /></a>
-					                <img class="group hover-icon-cart add-to-tr-cart" src="{{asset('public/img/peerposted/images/add_to_cart.svg')}}" alt="cart" data-id="{{$buyer->id}}" />
+					                <!--<img class="group hover-icon-cart add-to-tr-cart" src="{{asset('public/img/peerposted/images/add_to_cart.svg')}}" alt="cart" data-id="{{$buyer->id}}" />-->
 					                <div class="caption col-md-12">
 					                	<div class="row">
 					                		<div class="col-md-12">
